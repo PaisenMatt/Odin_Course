@@ -1,0 +1,28 @@
+Elements and tags:
+
+Almost all elements in HTML are content wrapped in an opening and closing tag.
+
+Opening tags tell the browser the start of an element. the tag contains a keyword inclosed in angle brackets.
+For example a paragraph element will start with <p>
+
+Closing tags tell the browser where an element ends. this tag is the same as the opening but includes a foward 
+slash before the keyword. 
+Example for paragraph closing bracket </p>
+
+A full paragraph element looks like this: 
+<p> Konnichiwa </p> , inside the tag goes the text content. Think of elements as containers for content.
+
+Using the correct tags for content is very important, in two aspects: How they are ranked in search engines
+and how accessible they are to users who rely on assistive technologies, like screen readers.
+
+The use of the correct elements is called semantic HTML.
+------------------------------------------------------------------------------------------------------------------
+
+Void Elements:
+
+Some elements have not closing tag. They have a single tag like: <br> or <img>. They are called void elements because
+they are void of any content, there is nothing inside of them. wihtout a closing tag they cant wrap content like other tags.
+
+They can also be referred to as self closing tags, but those are void elements with a foward slash, for example:
+<br /> or <img /> .
+Browsers will display them fine but the latest version of HTML specification discourages their use and considers them invalid.
