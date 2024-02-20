@@ -1,0 +1,154 @@
+Creating directories:
+
+create a new directory called thesis using mkdir(make directory): mkdir thesis.
+mkdir is not limited to making one directory, -p option allows you to create a directory with nested subdirectories.
+mkdir -p ../project/data ../project/results: creates a project directory in the directory above the one we are in, with subdirectories data and results.
+
+(current directory: Desktop/odin-lessons/Cli/shell-lesson-data/exrecise-data/writing)
+
+using -R option in ls lists all nested subdirectories within a directory. 
+ls -FR ../projects will recursively list the new directory hierarchy. resulting in:
+../project:
+data/ results/
+
+../project/data:
+
+../project/results:
+
+Tips on creating file or directory names on shell:
+
+- don't use spaces in names, use - or _ to sperate words.
+- don't begin the name with - (dash) as options begin with it.
+- Stick with letters, numbers, .(full stop), -(dash) and _(underscore)
+
+if refering to directory or file names with spaces, "" should be used around the name.
+-------------------------------------------------------------------------------------------------------------
+Creating a text file:
+
+(current directory: Desktop/odin-lessons/Cli/shell-lesson-data/exrecise-data/writing/thesis)
+
+Run a text editor called nano to create a file called draft.txt, nano draft.txt
+there are various text editors but nano is the easiest to learn from the command line, and it is only for text and no other media. 
+
+Knowing where the text editor searches for and saves files is important. starting it from the shell means it probably will use the current directory. 
+
+Type a few lines in the text editor, once that is done press ctrl + o to write the data to the disk. Press enter to accept the deafult draft.txt. use ctrl + x to quit the editor and return to shell.
+
+The control key can be refered to as control, ctrl or ^. So control + x can look like:
+control-X, control+X, ctrl-X, ctrl+X, ^X, c-x.
+in nano at the bottom we see, ^G get help and ^o WriteOut. this means control+G to get help and control+O to save the file.
+
+Creating files a different way:
+touch my_file.txt will create an empty file with the refered name. this file contains no data, this is useful for programs that dont create output files themselves, but require empty files which have been generated to search for and populate with data. the touch command allows for blank text files to be created to be used by those programs.
+
+rm is used to remove files and data. so rm my_file.txt
+-------------------------------------------------------------------------------------------------------------
+Moving files and directories:
+
+(current directory: Desktop/odin-lessons/Cli/shell-lesson-data/exerecise-data/writing)
+
+in thesis we have draft.txt lets change its name. 
+use mv thesis/draft.txt thesis/quotes.txt (mv stands for move). 
+the first part tells mv what is being moved, while the second part is where its going. with our case we are moving thesis/draft.txt to thesis/quotes.txt, which gives the same effect as renaming the file.
+ls thesis will now show use quotes.txt
+
+be careful when using mv and specifiying the target file name, mv can overwrite any other files with the same name without warning. mv has and additional option -i or --interactive which makes mv ask for confirmation.
+
+mv also works on directories.
+
+now move quotes.txt into the current working directory, by doing:
+mv thesis/quotes.txt .
+the . at the end means the current directory we are in.
+--------------------------------------------------------------------------------------------------------------
+Copying files and Directories:
+
+the cp command works like mv but instead it makes a copy of the file.
+to check that the right thing was done use ls with two paths as arguments:
+cp quotes.txt thesis/quotations.txt
+ls quotes.txt thesis/quotations.txt returns: quotes.txt thesis/quotations.txt
+
+directories can also be copied using the recursive option -r:
+cp -r thesis thesis_backup
+-------------------------------------------------------------------------------------------------------------
+Removing files and directories:
+
+remove the quotes.txt file in writing directory:
+rm quotes.txt
+rm erase, so wont go to a bin like on a GUI.
+using the -i option asks for you to confirm before removing.
+by deaafult rm only works on files. to remove files use the -r option
+rm -r thesis
+-------------------------------------------------------------------------------------------------------------
+Opertations with multiple files and directories:
+
+copying or moving several files at once can be done by using a list of individual filenames or specifying a naming pattern using wildcards. wildcards are special characters which can be used to represent unknown characters or sets of characters when navigating the Unix file system.
+
+(current directory: Desktop/odin-lessons/Cli/shell-lesson-data/exerecise-data)
+
+copying multiple filenames:
+
+mkdir backup
+cp creatures/minotaur.dat creatures/unicorn.dat backup/
+The commands above copy minotaur.dat and unicorn.dat from the creatures directory to the backup directory which was  created.
+
+cd creatures
+ls -F: 
+basilisk.dat minotaur.dat unicorn.dat
+cp minotaur.dat unicorn.dat basilisk.dat
+The last command gives an error saying that basilisk.dat isnt a directory.
+
+Using wildcards for accessing multiple files at once:
+
+(directory: Desktop/odin-lessons/Cli/shell-lesson-data/exerecise-data/alkanes)
+
+* is a wildcard which represents zero or more characters. *.pdb represents ethane.pdb, propane.pdb and every file that ends with '.pdb'. where as p*.pdb only represents pentane.pdb and propane.pdb, because the 'p' at the front can only represent filenames taht begin with the letter 'p'.
+
+? is also a wildcard, but it represents exactly one character. so ?etahne.pdb could represent methane.pdb whereas *ethane.pdb can represent both ethane.pdb and methane.pdb.
+
+wildcards can be used in combination with eachother for example ???ane.pdb indicates three characters followed by ane.pdb, giving cubane.pdb, ethane.pdb  and methane.pdb.
+
+when the shell sees a wildcard, it expands the wildcard to create a list of matching filesnames beofre running the preceding command. as an exception, if the wildcard expression does not match any file, Bash will pass the expression as an argument to the command as it is. for example, typing ls *.pdf in the alkanes directory which only contains '.pdb' files results in an error message that there is no file called *.pdf. however usually commands like wc and ls se the lists of file names matching these expressions, but not wildcards themselves. it is the shell, not other programs that expand the wildcards.
+
+1. ls *t*ane.pdb will output : ethane.pdb methane.pdb octane.pdb pentane.pdb
+2. ls *t?ne.* will output : octane.pdb pentane.pdb 
+3. ls *t??ne.pdb will output : ethane.pdb methane.pdb 
+4. ls ethane.pdb will output : ethane.pdb 
+
+ls -F : 
+analyzed/ fructose.dat raw/ sucrose.dat
+move fructose.dat and sucrose.dat into analyzed:
+mv *.dat analyzed
+ls -F analyzed: 
+fructose.dat sucrose.dat
+
+----------------------------------------------------------------------------------------------------------
+
+KEYPOINTS:
+
+- cp (old) (new) copies a file
+- mkdir (path) creates new directory.
+- mv (old) (new) moves (renames) a file or directory.
+- rm (path) removes (deletes) a file.
+- * matches zero or more characters in a filename, so *.txt matches all files ending in .txt.
+- ? matches any single character in a filename, so ?.txt matches a.txt but not any.txt
+- use of the control key may be described in many ways, including Ctrl-X, Control-X, and ^X.
+- the shell does not have a trash bin: once something is deleted, its really gone.
+- Most files' names are something.extension. The extension isnt required, and doesnt guarantee anything, but is normally used to indicate the type of data in the file.
+- depending on the type of work you do, you may need a more powerful text editor than Nano.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

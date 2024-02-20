@@ -1,0 +1,9 @@
+Ctrl + Alt + T will open terminal in Linux. The line in shell will end with $(called a prompt) on Linux and Mac, for newer Macs it will end with %. This indicates that shell is waiting for a command to be entered.
+
+$whoami returns your username.
+
+Shell has a high action-to-keystroke ratio, has good support for automating repetitive tasks and good capacity at accessing networked machines. shell's primary purpose is to read and run commands.
+
+ls is the listing command and lists all content of the current directory.
+
+

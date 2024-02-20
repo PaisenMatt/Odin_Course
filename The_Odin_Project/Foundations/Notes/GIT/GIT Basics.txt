@@ -1,0 +1,45 @@
+github changed the default branch name from master to main, to change this in git use the command:
+git config --global init.defaultBranch main
+
+Task create repository:
+- created repository named git_test with readme file.
+
+- copying the repository onto local machine, select the green code button them copy the SSH.
+
+- create a directory in wsl for odin projects called 'repos' in the home folder (~) and move into it.
+
+- clone the repository into the folder, use command 'git clone' followed by the copied SSH (git clone git@github.com:PaisenMatt/git_test.git)
+
+- using 'git remote -v' in the local repository will return the URL of the repository created on github.
+
+---------------------------------------------------------------------------------------------------------------------
+Task Git workflow:
+
+- create hello_world.txt file in repository, touch hello_world.txt. when using 'git status' will show our new file in red meaning it is not staged yet. To solve this use 'git add hello_world.txt' this will stage our file. the file name should now be shown in green.
+
+- now use git commit -m "Add hello_world.txt", then git status. it should display 'nothing to commit, working tree clean' which means changes have been committed. The 'Your branch is ahead of ‘origin/main’ by 1 commit' message means that there are newer snapshots than the remote repository.
+
+- git log will give you information such as the author who made the commit, date and time of when the commit was made. if the terminal screen is stuck with (END) at the bottom, just press 'q' to escape.
+
+---------------------------------------------------------------------------------------------------------------------
+Task Modify a file or two:
+
+- open README.md in a text editor, in this case we will use VS Code. use the 'code .' command in the repository.
+
+- add 'My First GitHub repo!' to the second line and 'Hello Odin!' to the thrid. and save using ctrl + s.
+
+- in terminal type 'git status', you can also open terminal in VS. the command should show README.md as not staged or committed. stage README.md 'git add'
+
+- open hello_world.txt, add some text, save it and stage it. using 'git add .' will add all files in the current directory and subsquent directoris to the staging area.
+
+- now commit all files and add a commit message, 'git commit -m "Edit README.md and hello_world.txt" '
+
+---------------------------------------------------------------------------------------------------------------------
+Task Push work to GitHub:
+
+- Type 'git push origin main', as we arent working with another branch apart from main we can just use 'git push'.
+
+- 'git status' will now show that the branch is up to date with origin/master.
+
+looking at GitHub we will now see all these edits in the repository.
+

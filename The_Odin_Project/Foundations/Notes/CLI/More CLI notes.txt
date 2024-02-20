@@ -1,0 +1,18 @@
+To copy and paste into the command line we use 
+ctrl + shift + c and ctrl + shift + v (on windows)
+cmd + c and cmd + v (on mac)
+
+Tab completion:
+hitting the tab key whilst writing a command will complete it for you as you go. for example:
+cd D then tab will give the folders starting with D
+Documents/ Downloads/
+then to get documents you do cd Doc + Tab
+giving cd Documents/ 
+
+Opening all project files:
+to open an entire project and its files in VS code, you open terminal and cd into the project directory and type code .
+this will open everything in VS code with the project files on the side bar.
+
+159947765+PaisenMatt@users.noreply.github.com
+
+to see if an ssh key already exists use ls ~/ssh/id_ed25519.pub

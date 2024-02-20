@@ -1,0 +1,6 @@
+HTML determaines how documents and web pages are displayed in a web browser, html is the language for the building blocks of any website.
+
+CSS determines how HTML documents look, it styles HTML. (colors, font styles, layout and responsive features)
+
+Javascript allows chanegs in CSS and HTML elements, it makes websites more interactive with animations, embedded videos and more.
+

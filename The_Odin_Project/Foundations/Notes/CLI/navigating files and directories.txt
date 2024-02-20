@@ -1,0 +1,124 @@
+The file system is responsible for managing files and directories, it organizes data into files which hold information, and directories (folders) which hold files or other directories.
+
+pwd (print working directory) shows us in which directory shell is currently working.
+
+The / has two meanings, at the front of a file or directory name it refers to the root directory and inside a path it is just a seperator.
+
+Using the -F option with the ls command will classify the outputs by adding markers to file and directory names to show what they are:
+
+a trailing / indicates a directory
+@ indicates a link
+* indicates an executable
+
+Outputs which dont have a classification symbol are files in the current working directory.
+
+The clear command clears the command line, to access previous commands the up and down arrow keys can be used.
+
+Commands can have lots of options, there are two ways you can find out how to use a command and the options it has:
+
+first is the --help option at the end of a command, for example ls --help. 
+
+second is getting its manual, for example man ls.
+
+sometimes commands are built into the Bash shell, instead of existing as seperate programs on the filesystem. for example cd, if you get a 'no manual entry for cd' message, try using help instead, help cd.
+
+the man will trun your terminal into a page with a description of the chosen command and its options.
+
+to navigate a manual page, you may use the up and down arrow keys to move line by line, or B and Spacebar to skip up and down a full page. to search for a character or word use / followed by the character or word you are searching for. sometimes the results will have multiple hits, to move between them use N to go foward and shift+N to go backwards.
+
+you can also use the internet to find manual pages for commands, using unix man page in the search query will help.
+
+multiple options can be used with a command at the same time.
+
+for example ls -l -h, -l is long listing which shows additional information such as file size, and time of last modification. -h makes the file size human readable, so instead displaying something like 5.3k instead of 5323.
+
+The ls command lists content in alphabetical order by name, the -t option lists in order of last modified, the -r option in reverse order. when you combine -t and -r in ls the most recently modified file is listed last, ls -rt.
+
+We can use ls to list the content of other directories, using the -F option and the dirctory name at the end or argument, an example is ls -F Desktop. if a Desktop directory did not exist in the current working directory the command line would return an error.
+
+We can look even further using / after desktop to access other directories, for example: ls -F Desktop/'Odin lessons'
+
+The cd (change directory) command changes the current working directory in shell. for example getting to exercise-data: 
+
+cd Desktop
+cd odin-lessons
+cd Cli
+cd shell-lesson-data
+cd exercise-data
+
+now use pwd to see our current directory:
+/home/mattnihon/Desktop/odin-lessons/Cli/shell-lesson-data/exercise-data
+
+using ls -F will list the contents of our current directory with markers.
+
+The commands above help you move down a directory try.
+
+The command to move back one directory is cd ..
+.. meaning the directory contaning this one or the parent of the current directory.
+
+to display the special directory .., we use ls -F using the -a option:
+ls -F -a
+
+-a stands for show all, including hidden files. forcing ls to show us files and directory names which being with ., such as .. (. is also displayed which mean current working directory)
+
+in most command lines options can be combined with a single - and no spaces between options. example: ls -F -a = ls -Fa
+
+The three basic navigation commands for the file system are: pwd, ls and cd.
+
+using just cd will take you back to the home directory.
+
+you can get to a specific directory without having to write indivdual cd commands, you string together the list of directories. for example getting back to exercise-data: 
+
+cd Desktop/odin-lessons/Cli/shell-lesson-data/exercise-data
+
+Here we specify the absolute path to a directory by including its entire path from the root directory, indicated by a leading /. the leading / tells the computer to follow the path from the root of the file system. refering always exactly one directory no matter where we are on the file system, when running the command.
+
+the shell interprets a tilde ~ at the start of a path, meaning the current user's home directory. for example:
+~/Desktop/odin-lessons will be /home/mattnihon/Desktop/odin-lessons.
+
+Another shortcut is - (dash), cd will translate this into the previous directory we were in. this is faster than having to remember and type the full path. this is an effeciente way of moving back and forth between two directories.
+
+the difference between cd .. and cd - is that the former will bring you up while the latter back down.
+
+note to clarify: .. means previous directory, so if we are in Desktop/odin-lessons/Cli/shell-lesson-data/exercise-data: .. will be shell-lesson-data and ../.. will be Cli/shell-lesson-data.
+
+
+Syntax: $ ls -F / (this command gives a listing of files and directories in the root directory)
+
+ls is the command, with option -F and an argument /. we´ve encontered options starting with a single dash (-) known as short options, or two dashes (--) known as long options. options will change the behaviour of a command and arguments tell the command what to operate on (files and directories etc.). sometimes both are refered to as parameters. commands can have more than one option and argument or non at all.
+
+sometimes options are refered to as switches or flags, espcially for options that take no argument.
+
+each part of the command is sperated by spaces, also capitalization can be important, example: ls -s displays size of files and directories with names, while ls -S sorts files and directories by size.
+
+When to use short or long options:
+
+- Short options are best for typing directly into shell to get tasks done faster. reducing keystrokes.
+- Long options are best to provide clarity in scripts, it will be read many times and typed once.
+
+Task (tab completion):
+
+tab completion example: ls nor then tab will complete nor into north-pacific-gyre/ (being in the shell-lesson-data)
+after ls north-pacific-gyre/ press g and tab appending goo, north-pacific-gyre/goo since all files that start with a g have the first three characters as goo. with north-pacific-gyre/goo press tab twice to see all the files. goodiff.sh goostats.sh
+
+Keypoints:
+
+- file system is responsible for managing information on the disk
+- information is stored in files, which are stored in the directories(folders)
+- Directories can also store other directories which then form a directory tree
+- pwd prints current working directory.
+- ls (path) prints listing of a specified file or directory, ls alone will list current working directory.
+- cd (path) chnages the current working directory.
+- most commands have options which start with a single -.
+- in unix directory paths are seperated with / on unix but on windows \.
+- / alone is the root directory of the whole file system.
+- An absolute path specifies a location from the root of the file system.
+- A relative path specifies a location starting from the current one.
+- . on its own means 'the current directory', .. means the previous or the directory above this one.
+
+
+
+
+
+
+

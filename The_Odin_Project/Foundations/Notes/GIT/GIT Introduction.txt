@@ -1,0 +1,16 @@
+GIT is a version control system.
+
+A save in a text editor records all of the words of a document as a single file. you only have one record of this file. unless you make duplicate copies. which can become confusing.
+
+However, a save in Git records all the differences in files and folders and keeps a historical record of each save. This is great because git allows you as a developer to see how your project grows and easily look at or restore file states from the past. once connected to a network Git allows you to push your project to GitHub or other alternatives: Bitbucket, Beanstalk, or GitLab for sharing and collab with other Devs.
+
+Git works locally on your machine, GitHub is a remote storage facility on the web for all your coding projects. Learning Git, you get to showcase your portfolio on GitHub. Using Git is considered an essential skill for modern web developers by development companies. A GitHub portfolio will provide proof to future employers as what you are capable of.
+
+There are two versions of VCS, centralized and distributed:
+Centralized will save all project data on one central server, so if the server goes down you have to wait to upload data or the other way around.
+Distributed will save the project data and snapshots on each team members device and allow synchronisation between eachother without a central server.
+
+The three stages:
+modified - changes have occured but have not been committed to your database yet.
+staged - a modified file has been marked in its current version to go into the next commit snapshot. think of this stage as a waiting room for files to get committed.
+committed - means that the data is safely stored in the local database.
