@@ -1,0 +1,32 @@
+Creating HTML file:
+
+- Create html-boilerplate folder, and inside it index.html
+its always good to name the homepage of our website index.html as web servers by deafult
+will look for an index.html file.
+
+The DOCTYPE:
+
+The DOCTYPES function is to tell the browser what version of HTML it should use render the
+document. The latest version is HTML5, the doctype for it is: <!DOCTYPE html>
+
+- Add <!DOCTYPE html> to the index file on the first line.
+----------------------------------------------------------------------------------------------------------------
+
+HTML element:
+
+after doctype we need to add a <html> element, this is known as the root element of the document, 
+every other element will be a descendent of it. Every HTML document must have it.
+
+- Add the <html> element to the index using the opening and closing tag as shown:
+<html lang="en">
+</html>
+The html tag uses a lang attribute, attributes are used to provide additional information about HTML
+elements.
+
+The lang attribute specifies the language of the text content in that element. this is used to mainly improve 
+accessibility of the webpage. allowing assistive technologies such as screen readers to adapt according to the 
+language and invoke the correct pronunciation.
+-----------------------------------------------------------------------------------------------------------------
+
+Head element:
+
