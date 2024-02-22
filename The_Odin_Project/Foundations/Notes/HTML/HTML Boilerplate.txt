@@ -48,7 +48,29 @@ The title element gives a human readable title on the browsers tab for the webpa
 titled the file name of the html document, index.html
 
 - Now add these three elements to the index.html file, inside the html element. as below:
+
 <head>
     <meta charset="UTF-8">
     <title>My First Webpage</title>
 </head>
+-----------------------------------------------------------------------------------------------------------------
+
+Body element:
+
+The final element to complete the boilerplate is the <body> element. This is where all content which is displayed to users will
+go. text, images, lists, links etc.
+
+- Add the <body> element to the index.html file, it goes inside the html element and always below the head element.
+as below:
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My First Webpage</title>
+    </head>
+
+    <body>
+    </body>
+</html>
+------------------------------------------------------------------------------------------------------------------
+
