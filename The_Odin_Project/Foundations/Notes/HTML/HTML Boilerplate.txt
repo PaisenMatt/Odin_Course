@@ -30,3 +30,25 @@ language and invoke the correct pronunciation.
 
 Head element:
 
+The <head> element is where important meta-information about our webpages go, and stuff required to render the pages 
+correctly in the browser. elements which display on the webpage should not be used in the head.
+
+Meta element:
+
+There should always be a <meta> tag with the charset encoding of the webpage in the <head>:
+<meta charset="utf-8">
+Setting the encoding is important as it makes sure the webpage displays special symbols and characters from other languages 
+correctly in the browser.
+
+Title element:
+
+The <title> element should also be included in the head of the html document.
+<title>My First Webpage</title>
+The title element gives a human readable title on the browsers tab for the webpage. if a title isnt included the tab will be 
+titled the file name of the html document, index.html
+
+- Now add these three elements to the index.html file, inside the html element. as below:
+<head>
+    <meta charset="UTF-8">
+    <title>My First Webpage</title>
+</head>
