@@ -74,3 +74,11 @@ as below:
 </html>
 ------------------------------------------------------------------------------------------------------------------
 
+Displaying the html document:
+
+Youu can display the html document in the browser, by double clicking the actual file, dragging and dropping it into 
+the browser.
+
+at the moment our index has no content, so use the <h1> tag to add a heading element inside the body.
+
+
