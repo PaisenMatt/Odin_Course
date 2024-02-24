@@ -1,0 +1,71 @@
+Introduction:
+
+Most content on the web is text-based, therefore alot of text elements will be used whilst working
+with HTML. So here we will go over paragraphs, headings, bold text, italicized text, relationships between
+nested elements and HTML comments. These all go inside the body element.
+
+Paragraphs:
+
+Paragraphs use the <p> opening tag and </p> closing tag to wrap text, for example:
+
+<body>
+    <p> Hello world, this is my first paragraph. thank you for taking the time to read it.
+    I hope you all enjoy my website</p>
+</body>
+----------------------------------------------------------------------------------------------------------------
+
+Headings:
+
+Headings are different from other text elements, they are displayed larger and bolder than other text, to show 
+that they are headings.
+
+There are six levels of headings, from most important and largest to least important and smallest. <h1> to <h6>.
+To create a heading we wrap text around heading opening and closing tags <h1></h1>. For example:
+
+<body>
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h6>This is heading 6</h6>
+</body>
+
+Using the correct heading is important, to provide levels of hierarchy to content. h1 being for the overall page,
+and the smaller for content on smaller sections of the page.
+-----------------------------------------------------------------------------------------------------------------
+
+Strong element:
+
+The <strong> element makes text bold. it also semantically marks text as important; affecting tools like screen 
+readers, which users with visual impairments will rely on to use your website. The tone of voice on some screen~
+readers changes to communicate the importance of text inside a strong element. Example:
+
+<body>
+    <strong>Im Strong</strong>
+</body>
+
+This element most likely will be used alot in combination with other text elements. For example:
+
+<body>
+    <p> <strong>Hello world</strong>, this is my first paragraph. thank you for taking the time to read it.
+    I hope you all enjoy my website</p>
+</body>
+-----------------------------------------------------------------------------------------------------------------
+
+Em element:
+
+The <em> element makes text italic. It also semantically places emphasis on the text, which once again may affect
+things like screen readers. To define an emphasised element, wrap text in an <em> tag. For example:
+
+<body>
+    <em>Some emphasised text</em>
+</body>
+
+Just like the strong element it will probably end up being used wwith other text elements. For example:
+
+<body>
+    <p> <em>Hello world</em>, this is my first paragraph. thank you for taking the time to read it.
+    I hope you all enjoy my website</p>
+</body>
+
