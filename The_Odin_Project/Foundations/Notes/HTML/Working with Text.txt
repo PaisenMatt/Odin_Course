@@ -68,4 +68,50 @@ Just like the strong element it will probably end up being used wwith other text
     <p> <em>Hello world</em>, this is my first paragraph. thank you for taking the time to read it.
     I hope you all enjoy my website</p>
 </body>
+------------------------------------------------------------------------------------------------------------------
+
+Nesting and indentation:
+
+All examples through out the notes elements which are within other elements are indented. This known as nesting
+
+When nesting elements within others, a parent and child relationship is created between them. The nested being the 
+children and the outter elements being the parent.
+
+Just like human relationships, HTML parent elements can have many children. elements nested at the same level are 
+considered siblings. For example, the two paragraphs below are children to the body tag and siblings to eachother:
+
+<body>
+    <p>This cake is delicious</p>
+    <p>It really is!</p>
+</body>
+
+We use indentation to make the level of nesting clear and readable for ourselves and others developers who will 
+work on our HTML in future. its recommended to indent child elements by two spaces.
+
+The parent, child and sibling relationship will become even more important for when styling with CSS and adding
+behavior with JavaScript.
+-------------------------------------------------------------------------------------------------------------------
+
+HTML comments:
+
+HTML comments are not visible to the browser, they allow us to comment on our code for other developers and for 
+ourselves in future to understand something in code which may not be clear.
+
+To write comments, we enclose the comment with <!-- and --> tags, Example below:
+
+<h1> View the html to see the hidden comments </h1>
+
+<!-- I am an html comment -->
+
+<p>Some paragraph text</p>
+
+<!-- I am another html comment -->
+-------------------------------------------------------------------------------------------------------------------
+
+Task:
+
+- Create a plain blog article page, using different headins, paragraphs, and some bolded and italicized text in 
+paragraphs. for dummy text use Lorem Ipsum, just type lorem in the text element and press enter for VS to generate
+the dummy text.
+
 
