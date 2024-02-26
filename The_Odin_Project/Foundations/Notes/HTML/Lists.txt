@@ -1,0 +1,45 @@
+Introduction:
+
+Lists are everywhere on the web for all sorts of things such as top 10 anime etc. eventually we will need to use them
+on our own webpages.
+
+HTML provides us with a couple of different types of lists. here we will cover unordered and ordered lists.
+
+Unordered lists:
+
+If you wish to have a list of items where order doesnt matter, like a shopping list where items can be bought in any 
+order, then we can use an unordered list.
+
+Unordered lists are created using the <ul> element, and each item within the list is created using the list item element
+<li>. Example below:
+
+Each item within an unordered list begins with a bullet point when displayed by the browser:
+
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+---------------------------------------------------------------------------------------------------------------------------
+
+Ordered lists:
+
+If you want to create a list where order of items does matter, like a step-by-step guide. then we can use an ordered list.
+
+Ordered lists are created using the <ol> element, each item is then created use <li> again. but each item begins with a number
+instead, Example below:
+
+<ol>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ol>
+----------------------------------------------------------------------------------------------------------------------------
+
+Task:
+
+- Create a HTML document and create the following lists:
+    Unordered shopping list of your favorite foods
+    Ordered list of the todo's to get done today
+    Unordered list of places you'd like to visit someday
+    Ordered list of your top 5 favorite animes
