@@ -1,0 +1,166 @@
+Introduction: 
+
+Links are one of the key features in HTML, allwoing us to connect to other HTML pages on the web.
+In this section we will learn how to create links and embed images on our websites.
+
+Odin Links and Images"
+
+Overview:
+
+- Create links to pages on other website on the internet.
+- Create links to pages on our own website.
+- Difference between absolute and relative links.
+- Display images on webpage using HTML.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Preparation:
+
+- Create directory called odin-links-and-images
+- In the new directory, create file called index.html
+- Open the file in VS Code and use the regular HTML Boilerplate
+- Then add <h1>Homepage</h1> to the body
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Anchor elements:
+
+To create links in HTML, we use anchor elements. An anchor element works by wrapping text or another element we want to become a link with <a> tag.
+
+- Add <a>click me</a> to the body of our HTML document. open it in browser to view.
+
+Clicking the anchor tag itself wont do anything, As the anchor tag does know where to go, as it doesnt have a link. We must tell it where to go, we do this by using an HTML attribute.
+
+An HTML attribute gives additional information to an HTML element and always goes in the opening tag. Attributes are usually made up of two parts: a name, and a value. however, not all attributes require a value. 
+in our situation we need to add a href (hypertext reference) attribute to the opening tag of the anchor. The value of the href is the destination we want our link to go to.
+
+- Add the href="https://www.theodinproject.com/about" to the anchor element we created:
+<a href="https://www.theodinproject.com/about">click me</a>
+
+By default, any text wrapped with an anchor tag without a href attribute, will look like plain text. With a href attribute, the browser will give the text a blue color and underline it to signify that it is a link.
+
+Anchor tags can be used for linking any kind of resource on the internet not just HTML documents. You can link videos, pdf files, images etc. 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Opening links in a new tab:
+
+The method used above opens links in the same tab as the webpage containing them. With most browsers this is done by default, it can be changed easily. All we need is another attribute called target.
+
+While href specifies the destination link, target specifies where the linked resources will be opened. if this attribute is not present, the _self value will be used by deafualt which opens in the current tab. 
+To open the link in a new window or tab (depending on the browser settings) set target to _blank:
+<a href="https://www.theodinproject.com/about" target="_blank" rel="noopener noreferrer">click me</a> 
+
+The rel attribute was also used above, this attribute is used to describe the relationship between the current page and the linked document.
+
+The noopener value prevents the opened link from gaining access to the webpage from which it was opened. The noreferrer value prevents the opened link from knowing which webpage or resource has a link (or 'reference') to it.
+It also includes the noopener behaviour meaning it can be used by itself.
+
+The reason we add behaviour for opening links in new tabs is for security, The prevention of access caused by noopener prevents phishing attacks where the opened link may change the original webpage to a different one to trick users. 
+This known as tabnabbing. Adding the noreferrer value can be done if you wish to not let the opened link know that your webpage links to it.
+
+It should be okay if you forget to use rel="noopener noreferrer" since most recent versions of browsers provide this security. if only target="_blank" is present. 
+But it is always recommended to pair target="_blank" with rel="noopener noreferrer"
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Absolute and relative links:
+
+Generally, there are two types of links we will create:
+- Links to pages on other websites on the internet.
+- Links to pages located on our own websites.
+
+Absolute links:
+
+Links to pages on other websites on the internet are called absolute links. A typical absolute link will be made up of the following parts: protocol://domain/path. 
+An absolute link will always contain the protocol and domain of the destination.
+
+We used an absolute link above linking to The  Odin Project's about page. it contains a protocol and domain therefore is an absolute link:
+https://www.theodinproject.com/about
+
+Relative links:
+ 
+Links to other pages within our own websites are called relative links. Relative links do not include the domain name, since they link to another page on the same website. 
+it assumes that the domain will be same as the page where the link was created on.
+
+Relative links only include the file path to the other page, relative to the page you are creating the link on. 
+
+- in the odin-links-and-images directory create a new about.html file.
+- create the usual boilerplate, a title "Odin Links and Images", and an About Page heading.
+- now in the index page add an anchor element with the href="about.html”:
+<a href="about.html">About</a>
+- After doing this make sure the link works properly. This works as both the index and about page are in the same directory, meaning about.html can be used as the reference.
+
+Usually we organise website directories better by having the index in the root directory and all other HTML files in their own directory.
+
+- create a directory named pages in the odin-links-and-images directory and move about.html into it.
+
+as the location of the about page has changed the about link on the index page won’t work.
+
+- to fix this all we need to do is, instead of having only about.html as reference use pages/about.html:
+<a href="pages/about.html">About</a>
+
+In most cases the solution above works fine, but sometimes unexpected issues might come up. Adding ./ before the link in most cases prevents issues. 
+This specifies to the code that it should start looking for the file/directory relative to the current directory:
+<a href=“./pages/about.html">About</a>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Images:
+
+HTML has a wide variety of elements for displaying media, the image element being one of the most used.
+
+To display an image in HTML we use the <img> tag which is self closing, meaning it doesn’t need a closing tag. 
+instead of wrapping content with an opening and closing tag, it embeds images into the page using the src attribute, 
+which tells the browser where the image file is located. 
+
+The src attribute works a lot like the href attribute used in anchor tags, it can embed images using both absolute and relative paths.
+
+An example of using an absolute path for an image:
+<img src=“https://www.theodinproject.com/mstile-310x310.png”>
+
+- create an images directory in odin-links-and-images
+- download this image and move it into the images directory
+- rename the image to dog.jpg
+- add the image to the index:
+<img src=“./images/dog.jpg”>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Parent directories:
+
+We might want to use the dog image in the about page, to do this we have to go up one level out of the pages directory into its parent directory in order to access the image.
+
+To go to the parent directory we must use two dots in the relative file path: ../ Example:
+
+- in the body of about.html add: <img src=“../images/dog.jpg”>
+
+how this works:
+- first we go to the parent directory of the pages directory being odin-links-and-images
+- then, in the parent directory, we go into the images directory
+- accessing the dog.jpg file
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Alt Attribute:
+
+Aside from the src attribute, every image must have an alt (alternative text) attribute.
+
+The alt attribute is used to describe the image. It will be used in place of the image if it cannot be loaded. It is also used with screen readers to describe what the image is to visually impaired users.
+
+Example:
+<img src=“https://www.theodinproject.com/mstile-310x310.png” alt=“The Odin Project Logo”>
+
+- add some alt text to the dog picture added to the odin-links-and-images project
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Image size attributes:
+
+While it is not required, specifying height and width attributes in image tags helps the browser layout the page without causing the page to jump and flash.
+
+It’s always a good habit to specify these attributes on every image, even when the image is the correct size and CSS is being used to modify it.
+
+Example:
+<img src=“https://www.theodinproject.com/mstile-310x310.png
+” alt=“The Odin Project Logo” height=“310” width=“310”>
+
+- add size attributes (height and width) to the dog image in the project. 
+
+
+ 
+
+
