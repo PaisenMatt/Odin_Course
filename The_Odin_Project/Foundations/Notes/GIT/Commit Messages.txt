@@ -1,0 +1,49 @@
+Commit Messages
+
+Introduction:
+
+Here we will go over the importance of good commit messages, how to write them, when to commit, and why a good commit history is important.
+
+Overview:
+
+- How to write meaningful commit messages.
+- Why meaningful commit messages are important.
+- When to commit.
+---------------------------------------------------------------------------------------------------------------------
+
+Bad vs. Good commits:
+
+Example of bad commit:
+fix a bug
+
+Though describing what was done, it’s too vague. others will be confused by it. 
+A good message will explain why there was a change, explaining what problem was solved and how.
+
+Effective commits have two parts: a subject and a body.
+
+Subject:
+
+A brief summary of the change you made to the project.
+
+Example:
+This is the change I made to the codebase.
+
+Github has a 72 character limit, keep the subject within this amount.
+
+Body:
+
+A short but clear description of what was done.
+
+Example:
+Describe the problem your commit solves and how.
+
+General Example:
+Add missing link and alt text to the company’s logo
+
+Screen readers won’t read the images to users with disabilities without this information.
+---------------------------------------------------------------------------------------------------------------------
+
+When to commit:
+
+The best time to commit is when you fix a typo, fix a bug or get to a point where the code works just as you wanted it to. 
+committing allows you to go back to a certain stage of the code, so when you commit is very important.
