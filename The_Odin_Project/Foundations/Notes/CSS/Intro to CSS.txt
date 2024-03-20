@@ -1,0 +1,21 @@
+Introduction:
+
+Here we will go over foundational CSS concepts, which should be known from the beginning.
+
+Overview:
+
+- Add styles to HTML with CSS
+- Understand how to use the class and ID attributes
+- Add styles to specific elements using the correct selectors
+-------------------------------------------------------------------------------------------------
+
+Basic syntax:
+
+CSS is made up of various rules. These rules are made up of a selector and a semicolon-seperated
+list of declarations, with each those declarations being made up of a property-value pair.
+-------------------------------------------------------------------------------------------------
+
+Selectors:
+
+Selectors refer to the HTML elements to which CSS rules apply; they are what is actually being 
+selected for each rule.
