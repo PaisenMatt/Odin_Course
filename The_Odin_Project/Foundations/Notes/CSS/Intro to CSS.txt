@@ -1,21 +1,373 @@
 Introduction:
-
+ 
 Here we will go over foundational CSS concepts, which should be known from the beginning.
-
+ 
 Overview:
-
+ 
 - Add styles to HTML with CSS
 - Understand how to use the class and ID attributes
 - Add styles to specific elements using the correct selectors
 -------------------------------------------------------------------------------------------------
-
+ 
 Basic syntax:
-
-CSS is made up of various rules. These rules are made up of a selector and a semicolon-seperated
+ 
+CSS is made up of various rules. These rules are made up of a selector and a semicolon-separated
 list of declarations, with each those declarations being made up of a property-value pair.
+ 
+Note:
+ 
+a <div> is one of the basic HTML elements, it is an empty container. Generally it is best to use other tags such as <h1> or <p>, 
+but as we progress through CSS we will notice that there are many cases, where what we need is a container for other elements, 
+the exercise in the odin project might use plain <div>s for simplicity. later on we will go over other various html elements.
 -------------------------------------------------------------------------------------------------
-
+ 
 Selectors:
-
-Selectors refer to the HTML elements to which CSS rules apply; they are what is actually being 
+ 
+Selectors refer to the HTML elements to which CSS rules apply; they are what is actually being
 selected for each rule.
+-------------------------------------------------------------------------------------------------
+ 
+Universal selector:
+ 
+This selector will select elements of any type, therefore being universal. The syntax for it is simply an asterisk. 
+The example below will give every element  the color purple:
+ 
+* {
+     color: purple;
+}
+-------------------------------------------------------------------------------------------------
+ 
+Type selector:
+ 
+The type selector will select all elements of the given element type, the syntax for this is simply the name of the element. 
+Example:
+ 
+HTML -
+<div>Hello, World!</div>
+<div>Hello again!</div>
+<p>Hi…</p>
+<div>Okay, bye.</div>\
+ 
+CSS -
+div {
+	color: white;
+}
+ 
+In the example all three <div> elements will be selected, except the <p> element.
+-------------------------------------------------------------------------------------------------
+ 
+Class selectors:
+ 
+This selector will select all elements with the given class, which is an attribute you place on an HTML element.
+Example:
+ 
+HTML -
+<div class=“alert-text”>Please agree to our terms of service.</div>
+ 
+CSS -
+.alert-text {
+	color: red;
+}
+ 
+With the syntax for this selector a period (.) is used followed by the case sensitive value of the class attribute. 
+You can use the same class on as many elements as you want.
+ 
+Another thing you do with the class attribute is add multiple classes to a single element as a space-separated list, 
+such as class=“alert-text severe-alert”. As whitespace is used to separate the class values, 
+spaces should never be used for multi-worded names and should use hyphen instead.
+-------------------------------------------------------------------------------------------------
+ 
+ID selectors:
+ 
+These are similar to class selectors. They select elements with a given ID, which is another attribute you place on an HTML element. 
+The major difference between IDs and Classes is that an element can only have one ID. 
+It cannot be repeated on a single page and should not contain any whitespace.
+Example:
+ 
+HTML -
+<div id=“title”>My Awesome 90’s Page</div>
+ 
+CSS -
+#title {
+	background-color: red;
+}
+ 
+With IDs, instead of a period, we use hashtag followed by the case sensitive value of the ID attribute. 
+People tend to use the ID attribute a lot when it’s not required, and classes are enough. 
+IDs should be used in special cases such as specifying or having links to redirect to a section on the current page. 
+You should avoid using IDs.
+-------------------------------------------------------------------------------------------------
+ 
+Grouping selector:
+ 
+Sometimes we have two groups of elements that share some of their style declarations.
+Example:
+ 
+.read {
+	color: white;
+	background-color: black;
+}
+ 
+.unread {
+	color: white;
+	background-color: black;
+}
+ 
+Both the .read and .unread selectors share the color: white; and background-color: black; declarations, 
+but otherwise have several of their own unique declarations. To cut down the repetition, we can group these two selectors together as a comma-separated list.
+Example:
+ 
+.read,
+.unread {	
+	color: white;
+	background-color: black;
+}
+ 
+.read {
+	other declarations
+}
+ 
+.unread {
+	other declarations
+}
+ 
+Both examples above will have the same result, with grouping or without. 
+The second one reduces the repetition of declarations and makes it easier to edit either color or background-color for both classes at once.
+-------------------------------------------------------------------------------------------------
+ 
+Chaining selectors:
+ 
+Another way to use selectors is to chain them as a list without any separation.
+Example:
+ 
+HTML -
+<div>
+	<div class=“subsection header”>Latest Posts</div>
+	<p class=“subsection preview”>This is where a preview for a post might go.</p>
+</div>
+ 
+There are two elements with the subsection class that have some sort of unique styles, 
+But we might want to apply a separate rule to the element that also has header as a second class. 
+To do that we could chain both class selectors together in our CSS example:
+ 
+CSS -
+.subsection.header {
+	color: red;
+}
+ 
+.subsection.header selects any element that has both the subsection and header classes. There isn’t any space between the .subsection and .header class selectors. 
+This syntax works for chaining any combination of selectors, except for chaining more than one type of selector (<div> for example).
+ 
+This can also be used to chain a class and an ID.
+Example:
+ 
+HTML -
+<div>
+	<div class=“subsection header”>Latest Posts</div>
+	<p class=“subsection” id=“preview”>
+		This is where a preview for a post might go.
+	</p>
+</div>
+ 
+You can take two elements above and combine them with the following:
+ 
+CSS -
+.subsection.header {
+	color: red;
+}
+ 
+.subsection#preview {
+	color: blue;
+}
+ 
+In general, you can’t chain more than one type selector since an element can’t be two different types at once. For example, chaining two type selectors like div and p would give us the selector divp, 
+which wouldn’t work since the selector would try to find a literal <divp> element, which doesn’t exist.
+-------------------------------------------------------------------------------------------------
+ 
+Descendant combinator:
+ 
+Combinators allow us to combine multiple selectors differently than either grouping or chaining them, as they show a relationship between the selectors. There are four types of combinators, 
+but now we will only go over the descendent combinator, which in CSS is represented as a single whitespace between selectors.
+Example:
+.selector .selector
+ 
+A descendent combinator will only cause elements that match the last selector to be selected if they also have an ancestor (parent, grandparent, etc.) that matches the previous selector.
+So with the example above, the second selector is what would be selected.
+ 
+So something like .ancestor .child would select an element with the class child if it has an ancestor with the class ancestor. So child will only be selected if it is nested inside ancestor, 
+regards of how deep the nesting is.
+Example:
+ 
+HTML -
+<div class=“ancestor”>
+	<!— A —>
+	<div class=“contents”>
+		<!— B —>
+		<div class=“contents”> <!— C —>  </div>
+	</div>
+</div>
+ 
+<div class=“contents”></div>
+<!— D  —>
+ 
+CSS -
+.ancestors .contents {
+	/* some declarations */
+	}
+ 
+The CSS for the example above will only select elements with the content class which are nested within the ancestor class. 
+So the first two elements with contents class, whereas the last one is not selected for not being nested inside ancestor.
+ 
+There isn’t a limit to how many combinators are added to this rule, .one .two . three .four would work with .four being the selected class if it has an ancestor class of three and three of two an ancestor class two of one etc. 
+Although nesting this far is best to be avoided as it can get confusing and might cause issues.
+-------------------------------------------------------------------------------------------------
+ 
+Properties to get started with:
+ 
+There are some CSS properties which we will use all the time or at least more often, here we will go over a some of these.
+ 
+Color and background-color:
+ 
+The color property sets ab elements text color, while background-color sets the background color.
+ 
+Both of these properties accept one of several kinds of value. A common one being a keyword such as the color name like red, or the transparent keyword. They also accept HEX, RGB, and HSL values.
+Example
+ 
+CSS -
+p  {
+	/* hex: */
+	color: #1100ff;
+}
+ 
+p {
+	/* rgb: */
+	color: rgb(100, 0, 127);
+}
+ 
+p {
+	/* hsl: */
+	color: hsl(15, 82%, 56%);
+}
+ 
+Check out https://www.w3schools.com/cssref/css_colors_legal.php to see adjust opacity of colours using an alpha value.
+ 
+Typography basics and text-align:
+ 
+font-family can be a single value or a comma-separated list of values that determine what font an element uses. Each font will fall into one of two categories, 
+either a “font family name” like “Times New Roman” (quotes are used due to whitespace between words) or a “generic family name” like serif (generic family names never use quotes).
+ 
+If a browser cannot find or does not support the first font in a list, it will use the next one, then the next one and so, until it finds a supported and valid font. 
+Therefore it is best to include a list of values for this property, starting with the font you want to be used most and ending with a generic font family as a fallback, e.g. font-family: “Times New Roman”, serif;
+ 
+font-size will set the size of the font. When giving a value to this property it should not contain any whitespace. e.g. font-size: 22px has no space between 22 and px.
+ 
+font-weight affects the boldness of text, assuming that the font supports the specified weight. This value can be a keyword, e.g. font-weight: bold, or a number between 1 and 1000, e.g. font-weight: 700 (the equivalent of bold). 
+usually this value goes up in increments of 100 up to 900, though this will depend on the font.
+ 
+text-align will align text horizontally within an element, you can use the common keywords you have come across in word processors as the value for this property, e.g. text-align: center.
+ 
+Image height and width:
+ 
+We can adjust height and width on other elements but here we will focus on images.
+ 
+By default the height and width of an <img> element will be the same as the images actual file height and width. If you wanted to adjust the size of the image without causing it to lose proportions, 
+you would use the “auto” value for height and adjust the width value.
+Example:
+ 
+CSS -
+img {
+	height: auto;
+	width: 500px;
+}
+ 
+If the original image size was 500px height and 1000px width, using the CSS above would result in the height being 250px.
+ 
+These properties work in conjunction with the height and width attributes in the HTML, it’s best to include both of these properties and the HTML attributes for image elements. 
+even if you don’t adjust the image file’s original ones. When these values aren’t present, if an image takes longer than the other elements on a page to load, 
+space on the page won’t be taken up at first but will suddenly cause a drastic shift of the other elements on the page once it loads. 
+Stating both the height and width prevents this, as space will be reserved on the page and appear blank until the image loads.
+-------------------------------------------------------------------------------------------------
+ 
+Adding CSS to HTML:
+ 
+There are three methods to add CSS to HTML.
+ 
+External CSS:
+ 
+External CSS is the most common method we will come across, and it involves creating a separate file for the CSS and linking it inside of an HTML’s opening and closing <head> tags with a self-closing <link> element:
+ 
+HTML -
+<head>
+	<link rel=“stylesheet” href=“styles.css”>
+</head>
+ 
+CSS -
+/*style.css*/
+ 
+div {
+	color: white;
+	background-color: black;
+}
+ 
+p {
+	color: red;
+}
+ 
+We add the self-closing <link> element inside of the opening and closing <head> tags of the HTML file. The href is the location os the CSS file, 
+either an absolute URL or a URL relative to the location of the HTML file which is used in the example above. in the example above both the HTML and CSS files would be in the same directory. 
+The rel attribute is required, as it specifies the relationship between the HTML file and the linked file.
+ 
+Inside the styles.css file, we have the selectors div and p followed by a pair of opening and closing curly braces, which create a declaration block. inside the declaration block we have our declarations, 
+color and background-color.
+ 
+You can name CSS file what you want as long as they use the .css extension. Though style and styles is commonly used.
+ 
+Pros of this method:
+ 
+- Keeps HTML and CSS separated, making the HTML file smaller and look cleaner.
+- We only need to edit CSS in one place, which is useful for websites with many pages which share similar styles.
+ 
+Internal CSS:
+ 
+Internal CSS or embedded CSS, involves adding the CSS within the HTML file itself instead of creating a completely separate file. 
+With this method you place all rules inside a pair of opening and closing <style> tags, which are placed inside the <head> opening and closing tags. therefore we do not need a <link> element like the external method.
+ 
+apart from those differences the syntax is the same as the external method (selector, curly braces, declarations).
+Example:
+ 
+HTML/CSS -
+<head>
+	<style>
+		div {
+			color: white;
+			background-color: white;
+		}
+ 
+		p {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	…
+</body>
+ 
+This method is useful for adding unique styles to a single page of a website, but doesn’t keep things separate, depending on the amount of rules it can cause the HTML file to get quite big.
+ 
+Inline CSS:
+ 
+This method allows us to add CSS directly to HTML elements, though this method isn’t as recommended.
+Example:
+ 
+HTML/CSS -
+<body>	
+	<div style=“color: white; background-color: black;”>…</div>
+</body>
+ 
+Here selectors aren’t used, as the styles are being added directly to the opening <div> tag itself. Next, we use the style= attribute, with its value in the quotation marks being the declarations.
+If you require a unique style for a single element, this method works fine. But this method of adding CSS to HTML is very recommended for the following reasons:
+
+- It can become messy quickly with a lot of declarations to a single element. making the HTML unnecessarily bloated.
+- If you want many elements to have the same style, you would need to copy and paste the same style to each individual element,
+causing a lot of repetition and  more bloat.
+- Any inline CSS will override the other two methods, which can cause unwanted results. 
