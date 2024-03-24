@@ -1,0 +1,58 @@
+Introduction: 
+
+Here we will combine the knowledge of selectors with C of CSS, the cascade.
+
+Lesson overview:
+
+- What cascade does.
+- Specificity snd combining CSS selectors.
+- How inheritance affects certain properties.
+-------------------------------------------------------------------------------------------------
+
+The cascade of CSS:
+
+Sometimes we end up with rules that confilct with one another, giving us unexpected results. 
+We must remember that CSS doesnt do things against our wish, it does what it is told to do.
+One exception to see are default styles provided by browsers, these may vary from browser to browser. 
+They are why some elements create a large gap between themselves and other elements, or why buttons look the way they do.
+Despite us not having written any CSS to style them that way.
+
+So if we end up with unexpected results, its most likely because of these defaults not understanding how a property works,
+or not understanding this thing called the cascade.
+
+The cascade actually determines which rules get applied to our HTML. There are different factors that the cascade uses to determine this.
+We will look at three of these factors, which hopefully will help us avoid unexpected results.
+
+Specificity:
+
+A CSS declaration which is more specific will take more precedence over less specific ones.
+Inline styles have the highest specificity compared to selectors, while each type selector has its own specificity level, 
+that contributes to how specific a declaration is. Other selectors contribute to specificity, but for now we will focus on the ones we have.
+- ID selectors (most specific selector)
+- Class selector 
+- Type selector
+
+Specificity only takes place when an element has multiple conflicting declarations targeting it, sort of like a tie-breaker.
+An ID selector will always beat any number of class selectors, a class selector will always beat any number of type selectors,
+and a type selector will always beat any number of less specific selectors.
+
+When no there is no declaration with a selector of higher specificity, a rule with greater number of selectors of the same type, 
+will take precedence over another rule with fewer selectors of the same type.
+Example:
+
+HTML -
+<div class="main">
+    <div class="list subsection">Red text</div>
+</div>
+
+CSS -
+/* rule 1 */
+.subsection {
+    color: blue;
+}
+
+/* rule 2 */
+.main .list {
+    color: red;
+}
+
