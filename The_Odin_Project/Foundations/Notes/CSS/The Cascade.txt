@@ -56,3 +56,129 @@ CSS -
     color: red;
 }
 
+in the example above, both rules use class selectors, but rule 2 is more specific because it is using more class selectors. so color: red; would take precedence.
+ 
+Now, lets make some changes:
+ 
+HTML -
+<div class=“main”>
+	<div class=“list” id=“subsection”>Blue text</div>
+</div>
+ 
+CSS -
+/* rule 1*/
+#subsection {
+	color: blue;
+}
+ 
+/* rule 2 */
+.main .list {
+	color: red;
+}
+ 
+In the example above, although there are more class selectors than ID selectors in rule 2, rule 1 is more specific as ID beats class. in this case color: blue; would take precedence.
+ 
+a bit more complex:
+ 
+HTML -
+<div class=“main”>
+	<div class=“list” id=“subsection”>Red text on yellow background</div>
+</div>
+ 
+CSS -
+/* rule 1*/
+#subsection {
+	background-color: yellow;
+	color: blue;
+}
+ 
+/* rule 2 */
+.main #subsection{
+	color: red;
+}
+ 
+With this final example, the first rule uses an ID selector while the second rule combines a class with an ID selector, therefore neither rule is using a more specific selector than the other. 
+The cascade checks the number of each selector type. Both rules have only one ID selector, but rule 2 has a class selector with the ID selector, making it higher in specificity.
+ 
+color: red declaration would take precedence, and the background-color: yellow would still be applied as there is no conflicting declaration.
+ 
+Not everything will add to specificity, when comparing selectors, we may come across universal selector (*) as well as combinators (+, ~, > and an empty space). These do not add any specificity in and themselves.
+ 
+CSS -
+/ * rule 1 */
+.class.second-class {
+	font-size: 12px;
+}
+ 
+/ * rule 2 */
+.class  .second-class {
+	font-size: 24px;
+}
+ 
+Both rule 1 and 2 have the same specificity. Rule 1 uses a chaining selector (no space) and rule 2 uses a descendent combinator (empty space). 
+both rules have two classes and the combinator symbol itself does not add to the specificity.
+ 
+CSS -
+/ * rule 1 */
+.class.second-class {
+	font-size: 12px;
+}
+ 
+/ * rule 2 */
+.class  > .second-class {
+	font-size: 24px;
+}
+ 
+The example above shows the same thing. Even though rule 2 is using a child combinator (>), this does not change the specificity value. Both have still have two classes so they have the same specificity.
+ 
+CSS -
+/* rule 1 */
+* {
+	color: black;
+}
+ 
+/* rule 2 */
+h1 {
+	color: orange;
+}
+ 
+In this example, rule 2 would have the highest specificity. and the orange value would take precedence for this element(h1), type selector has the lowest specificity. 
+rule 1 would then be applied to other elements if there are no conflicts. (*) has no specificity.
+ 
+Inheritance:
+ 
+Inheritance refers to certain CSS properties that, when applied to an element, are inherited by that elements descendants, even if we don’t explicitly write a rule for those descendants. 
+Typography based properties are usually inherited (color, font-size, font-family, etc.) while most other properties arent.
+ 
+There is an exception when directly targeting an element, as this always beats inheritance:
+ 
+HTML -
+<div id=“parent”>
+	<div class=“child”></div>
+</div>
+ 
+CSS -
+#parent {
+	color: red;
+}
+ 
+.child {
+	color: blue;
+}
+ 
+Despite the parent element having higher specificity with an ID, the child element would have the color: blue style applied since that declaration directly targets it, while color: red from the parent is only inherited.
+ 
+Rule order:
+ 
+Lets suppose there are many conflicts concerning a rule targeting an element, then cascade will chose the last defined rule.
+Example:
+ 
+.alert {
+	color: red;
+}
+ 
+.warning {
+	color: yellow;
+}
+ 
+Let’s suppose an element has both these classes, cascade would go through every factor. including inheritance (there is none), specificity (both are classes so are both on the same level), since the warning rule is last to be defined it is the one to get applied.
