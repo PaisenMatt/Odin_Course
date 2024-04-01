@@ -1,0 +1,36 @@
+Introduction:
+ 
+CSS has two box types: block and inline boxes, which define element behaviour and interaction. The display property controls how elements appear on the webpage.
+ 
+Overview:
+ 
+- We will look at Normal Flow
+- Difference between block and inline elements
+- Elements which default to block and elements which default to inline
+- divs and spans
+-------------------------------------------------------------------------------------------------
+
+ 
+Block vs inline:
+ 
+Most elements which we have looked at so far are block, so their default style is display: block. Block elements appear on webpages stacked on top on each other, each new element starting on a new line.
+ 
+However, Inline elements do not start on a new line. They appear in line with whatever element they are placed beside. A good example of one is the link element, or <a> tag. If one of these is stuck in the middle of a paragraph of text, it will behave like a part of the paragraph. The links text will sit along side other words in that paragraph. Padding and margin behave differently on inline elements. In general, you do not want to try to put extra padding or margin on inline elements.
+ 
+The middle ground inline-block:
+ 
+Inline-block elements behave like inline elements, but block-style padding and margin. display: inline-block is a useful tool to know. but in practice, we probably will end up using flex box more often when lining up a bunch of boxes. We will cover flex box in-depth after.
+ 
+Divs and Spans:
+ 
+Divs and spans are just generic boxes that can contain anything, whereas elements such as paragraph tell the browser to display text, strong element tells the browser which texts are important etc.
+ 
+Having elements like this, is a lot more useful than it appears. We will often need these elements to be “hook” elements. We can give them a class or id to target them for styling with CSS. Another useful case which will come up is using them to group together related elements under one parent element to correctly position them on the page. Divs and spans provide us with the ability to do this.
+ 
+Div is a block-level element by default. It is commonly used as a container to group other elements together. Divs allow us to divide a page into different blocks and apply styling to those blocks.
+ 
+Span is an inline-level element by default. It can be used to group text content and inline HTML elements for styling and should only be used when no other semantic HTML element is appropriate.
+
+An example of using span would be to color a specific part of a paragraph:
+ 
+<p>Hello world, <span style=“ background: red; “>this is my example paragraph.</span> please feel free to use span</p>
