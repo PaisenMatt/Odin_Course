@@ -43,3 +43,33 @@ border: 20px
 set height: 100
 set width: 100
 now the actual element size will be 40x40
+-------------------------------------------------------------------------------------------------
+
+CSS-TRICKS:
+ 
+Using auto on the margin means the browser will define the margin for you. in most cases the value of auto is 0, or whatever space is available on that side of the element. Auto is useful for for horizontal centering:
+ 
+.container {
+	width: 980px;
+	margin: 0 auto;
+}
+ 
+With the example above two things are done to center the element.
+- A specific width is given
+- The left and right margins are set to auto
+Without the specified width the auto values would have no effect, setting the left and right margins to0 or else to whatever is the available space inside the parent element.
+ 
+This does no work vertically but only horizontally.
+ 
+When margins collapse the largest value always is used, even for nested elements. if we have div with a paragraph in it both having a set margin, the largest margin will be used.
+ 
+Negative margins:
+ 
+While positive margins push elements away, negative margins pull elements.
+ 
+Display property:
+ 
+block - takes all the space available
+inline - takes up the least amount of space possible (can’t set width and height)
+inline-block - is the same as inline but allows you to set the width and height of an element
+none - makes the element disappear as if it doesn’t exist
