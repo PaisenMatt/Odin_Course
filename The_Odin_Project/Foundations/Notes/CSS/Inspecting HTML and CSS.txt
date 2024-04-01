@@ -1,0 +1,65 @@
+Overview:
+ 
+DevTools is a set of web development tools built directly into Google Chrome browser. DevTools help you edit pages on the fly and quickly diagnose problems and fix them.
+ 
+Opening DevTools:
+Right click anywhere on the page and select inspect.
+ 
+The inspect button will allow you to select the element you want to on a webpage, then you can inspect the DOM in the elements panel.
+ 
+Elements panel:
+You can view and edit CSS in the elements panel, the computed tab has a box model which allows you to view the final styling size, element size, padding, border and margin. In the box model you can double click a value and change it live.
+ 
+Device mode:
+This button allows you to emulate  the webpage on other devices such as smartphones.
+ 
+Console panel:
+This section allows you to view logs, errors and warnings.
+When an error comes up the console will show you where the it is.
+ 
+Breakpoint - This stops your code on the line you set it, giving you time to debug.
+ 
+The console allows you to run javascript and experiment.
+ 
+Network panel:
+ 
+Allows you to monitor network activities when loading a page.
+You can filter the list by request types such as CSS, JS etc. To view multiple types, hold control them click the types you want.
+ 
+The throttling option allows you to slow down the internet connection to see how the webpage would run for users with slower connection.
+ 
+-------------------------------------------------------------------------------------------------
+ 
+Opening chrome DevTools:
+ 
+To open the elements panel with keyboard shortcut use,
+Mac - cmd + option + c
+Windows/Linux - ctrl + shift + c
+ 
+To open the console use,
+Mac - cmd + option + j
+Windows/Linux - ctrl + shift + j
+ 
+To open the last panel used use,
+Mac - cmd + shift + i
+Windows/Linux - ctrl + shift + i
+ 
+To open DevTools with UI use,
+The three dots on the top right corner, then more tools, and Developer tools
+ 
+On Mac,
+Go to the top menu bar and select view, then developer
+ 
+The last option is Fn + F12
+-------------------------------------------------------------------------------------------------
+ 
+Viewing and changing the DOM:
+ 
+DOM (Document Object Model) is used to change page structure, style and content using javascript, it’s a tree like structure with nodes representing the HTML elements. It looks like the HTML.
+ 
+The HTML represents the initial page content, where as the DOM represents the current page content when Javascript changes the initial HTML document.
+ 
+Using $0 in the console shows the current element/DOM node.
+Using $0.textContent allows you to change the text content.
+ 
+You can also edit the DOM directly on the elements panel.
