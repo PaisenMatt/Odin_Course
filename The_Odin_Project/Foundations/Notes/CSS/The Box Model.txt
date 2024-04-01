@@ -1,0 +1,45 @@
+Introduction:
+ 
+The most important skills we need to master with CSS are positioning and layout. Changing fonts and colours is a crucial skill, but being able to put things exactly where we want them on a webpage is even more crucial. We can’t really find webpages where every element is just stacked one on top of another.
+ 
+Learning to position elements isn’t that hard once we understand a few key concepts. Skipping this and going straight to JS is meaningless if we can’t stick our elements where we want them on our webpage.
+ 
+Overview:
+ 
+- we will learn about box model
+- we will learn to make sure elements are just the right size with margin, padding, borders.
+-------------------------------------------------------------------------------------------------
+ 
+The box model:
+ 
+This is the first important concept we must understand to be successful in CSS.
+ 
+Every single thing on a webpage is a rectangular box. These boxes can have other boxes in them, and can sit alongside one another.
+ 
+When get a rough idea of how this works by adding an outline to every element on the webpage:
+ 
+* {
+	outline: 2px solid red;
+}
+ 
+There are many ways to manipulate the size of these boxes, and the space between them, using padding, margin and border.
+ 
+- Padding increases the space between the content of a box and the borders of adjacent boxes.
+- Margin increases the space between the borders of a box and the borders of adjacent boxes
+- Border adds space (even if its only a pixel or two) between the margin and the padding.
+ 
+Box Model Video:
+ 
+Margin collapses in the box model, so if both elements have a set margin of sixty the margin between them won’t be 120 but 60. if the margin between both is different, the larger one will be used.
+ 
+The best way to space to elements is by using margin, and padding to space an element from itself.
+ 
+The actual height of an element in css is the elements defined height plus top and bottom padding plus top and bottom border. same goes for width.
+ 
+using box-sizing: border-box will makes height and width account for padding and border.
+Example:
+padding: 10px
+border: 20px
+set height: 100
+set width: 100
+now the actual element size will be 40x40
