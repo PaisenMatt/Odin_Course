@@ -1,0 +1,33 @@
+Introduction:
+ 
+We will learn over time many ways to move elements around on a web page. Over the years new methods have been developed and older ones fallen out of style. 
+Flexbox is a relatively new way of manipulating elements in CSS.
+ 
+Flexbox will be one of our most used tools, as it has become the default ways many developers position items.
+ 
+Overview:
+ 
+- How to position elements using flexbox.
+- You will learn about flex containers and flex items.
+- You will learn how to create useful components and layouts that go beyond just stacking and centering elements.
+-------------------------------------------------------------------------------------------------
+ 
+Before starting:
+ 
+Flexbox layouts can get complicated, if you get stuck and things don’t work how there meant to, use the DevTools to see why and debug.
+ 
+It’s not that flexbox is more difficult than the previous concepts, it just has more moving parts.
+-------------------------------------------------------------------------------------------------
+ 
+Lets flex:
+ 
+Flexbox is a way to arrange items into rows or columns. These items will flex (grow or shrink etc.) based on some rules that we can define.
+ 
+Flexbox is not just a single CSS property but a whole toolbox of properties that can be used to put things where we need them. 
+some of these properties belong on the flex container, while some on the flex items. This is an important concept.
+ 
+A flex container is any element that has display: flex; on it. A flex item is any element that lives directly inside of a flex container.
+ 
+Confusingly, any element can be both a flex container and a flex item. In other words, you can also put display: flex; on a flex item and then use flexbox to arrange its children.
+ 
+Creating and nesting multiple flex containers and items is the main way we will be building up complex layouts.
