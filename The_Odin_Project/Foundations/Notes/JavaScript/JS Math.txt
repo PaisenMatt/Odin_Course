@@ -1,0 +1,247 @@
+JS MATHS
+ 
+JavaScript arithmetic:
+ 
+Addition - let z = x + y;
+Subtraction - let z = x - y;
+Multiplication - let z = x * y;
+Devision - let z = x / y;
+Remainder - let z = x % y;
+Incrementing - let x = 5; , x++; , let z = x; (returns 6)
+Decrementing - let x = 5; , x—; , let z = x; (returns 4)
+Exponentiation - let z = x ** 2; (raise to 2), let z = Math.pow(x,2); (does the same thing)
+ 
+Javascript numbers:
+ 
+JS has only one type of number. They can be written with or without decimals.
+ 
+Example:
+let x = 3.14; // With decimal
+let y = 3; // without decimal
+ 
+Very large or small number can be written with scientific exponent notation:
+ 
+let x = 123e5; // 12300000
+let y = 123e-5; // 0.00123
+ 
+Interger precision-
+Intergers are accurate up to 15 digits:
+ 
+let x = 999999999999999;   // x will be 999999999999999
+let y = 9999999999999999; // y will be 10000000000000000
+the maximum number of decimals is 17.
+ 
+Floating Precision -
+Floating point arithmetic is not always 100% accurate:
+ 
+let x = 0.2 + 0.1; // will output 0.30000000000000004
+ 
+Adding numbers and strings -
+JS uses the + operator for both addition and concatenation.
+If you add a number to a string, the result will be a string concatenation:
+ 
+let x = 10;
+let y = “20”;
+let z = x + y; // will output 1020
+the same happens the other way around.
+ 
+let x = 10;
+let y = 20;
+let z = “The result is:” + x + y; // the output will be The result is 1020
+ 
+let x = 10;
+let y = 20;
+let z = “30”;
+let result = x + y + z; // the output will be 3030
+ 
+This is because JS works from left to right.
+JS can convert strings to numbers for numeric operations for the following scenarios (except +):
+ 
+let x = "100";
+let y = "10";
+let z = x / y; // will output 10
+ 
+let x = "100";
+let y = "10";
+let z = x * y; // will output 1000
+ 
+let x = "100";
+let y = "10";
+let z = x - y; // will output 90
+ 
+NaN (Not a Number) -
+NaN is a reserved word in JS to indicate that a number is not a legal number. for example:
+ 
+let x = 100 / “Apple”; // will output NaN
+ 
+let x = 100 / “10”; // will output 10
+ 
+you can use isNaN() to see if a value is a number:
+ 
+let x 100/ “Apple”;
+isNaN(x); // will return true
+ 
+Infinity -
+Infinity or -Infinity is the value that JS will return if you calculate a number outside the largest possible number.
+ 
+Devision by zero will also generate Infinity:
+let x = 2/0; // Infinity
+ 
+Hexadecimal -
+JS interprets numeric constants as hexadecimal if they are preceded by 0x:
+let x = 0xFF; // outputs 255
+ 
+by default numbers are displayed as base  10 decimals. but by using toString() we can output numbers from base 2 to base 36.
+Hexadecimal is base 16, decimal is 10, octal is 8 and binary 2.
+ 
+Numbers can be defined as objects with the keyword new:
+ 
+let y = new Number(123);
+ 
+== compares values after conversion
+=== compares values without conversion
+-------------------------------------------------------------------------------------------------
+ 
+unary, binary, operand:
+ 
+An operand is what the operators are applied to, for example: 5*2, 5 and 2 are the operands, sometimes they are called arguments.
+ 
+An operator is unary if it has a single operand, for example: the unary negation - reverses the sign of a number:
+let x = 1;
+ 
+x = -x;
+alert(x); // -1 will be outputted.
+ 
+An operator is binary if it has two operands. The same minus exists in binary form as well:
+let x = 1, y = 3;
+alert(y - x); // 2 will be outputted, binary minus subtracts values.
+ 
+Numeric conversion, unary:
+ 
+the unary + will convert non number to number:
+// no effect on numbers
+let x = 1;
+alert(+x); // 1
+ 
+let y = -2;
+alert(+y); // -2
+ 
+// converts non-numbers:
+alert(+true); // 1
+alert(+””) // 0
+ 
+This does the same thing as Number() but shorter.
+ 
+This becomes useful in HTML as forms usually are in strings and we might want to add form values together:
+ 
+let apples = “2”;
+let oranges = “3”;
+ 
+// both values are converted to numbers before the binary plus
+alert( +apples + +oranges); // 5
+ 
+// longer version: alert( Number(apples) + Number(oranges) ); // 5
+ 
+Operator precedence:
+ 
+To override precedence we can use brackets like in math (1 + 1).
+ 
+Below is the precedence list, highest number being the highest precedence:
+ 
+14 - unary plus
+14 - unary negation
+13 - exponentiation
+12 - multiplication
+12 - division
+11 - addition
+11 - subtraction
+2 - assignment
+ 
+Assignment:
+ 
+assignment (=) is also an operator, it has a very low precedence of 2.
+ 
+Hence when we assign a variable, like x = 2 * 2 + 1, the calculations are done first and the the = is evaluated storing the result in x.
+ 
+Chaining assignments:
+ 
+let a, b, c;
+ 
+a = b = c = 2 + 2;
+ 
+alert(a); // 4
+alert(b); // 4
+alert(c); // 4
+ 
+chained assignments are evaluated from right to left. so in the example 2 + 2 is evaluated first and assigned going to the left.
+ 
+Modifying in place:
+ 
+often we might need to apply an operator to a variable and store the new result in that same variable. example:
+ 
+let n = 2;
+n = n + 5
+n = n * 2;
+ 
+this can be shortend with += and *=:
+ 
+let n = 2;
+n += 5; // n now is 7
+n *= 2; // n now is 14
+ 
+alert(n); // 14
+ 
+this exists for all operators such as /, - and so on.
+precedence for these is the same as a normal assignment.
+ 
+let n = 2;
+ 
+n *= 3 + 5; // right side ( 3 + 5 ) first, then multiplication.
+ 
+alert( n ); // 16
+ 
+ 
+Increment/decrement:
+ 
+there are special operators for increasing and decreasing numbers by one.
+ 
+increment ++ increases by 1:
+let counter = 2;
+counter++;
+alert(counter); // 3
+ 
+decrement — decrease by 1:
+let counter = 2;
+counter - -; // - - joined together
+alert(counter); // 1
+ 
+The operators can be placed before or after a variable ( ++/--)
+if we use the operator after the variable it will not be outputted but only when the operator goes before.
+ 
+Bitwise operators:
+ 
+Bitwise operators treat arguments as 32 bit integer numbers and work on the level of their binary representation.
+ 
+These operators are not JS specific. They are supported in most programming languages:
+ 
+AND ( & )
+OR ( | )
+XOR ( ^ )
+NOT ( ~ )
+LEFT SHIFT ( << )
+RIGHT SHIFT ( >>)
+ZERO-FILL RIGHT SHIFT ( >>> )
+ 
+These are used very rarely. so wee won’t go into it. maybe in future.
+ 
+Comma:
+ 
+The comma operator allows us to evaluate several expressions, dividing them with a comma. each is evaluated but only the result of the last one is returned:
+ 
+let a = (1 + 2, 3 + 4)
+ 
+alert( a ); // 7 the result of 3+4
+ 
+there 1 + 2 was evaluated hen thrown away leaving us with the last expression returning its result.
+ 
+the precedence of , is lower than = . making parentheses important above. without them + would be evaluated first, summing numbers into a = 3, 7 then = assigns a = 3 and the rest is ignored.

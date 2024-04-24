@@ -1,0 +1,266 @@
+Variables and  Operations
+ 
+Introduction:
+ 
+Now we will look at Javascript for making our webpages and websites interactive.
+ 
+Overview:
+ 
+- How to declare a variable.
+- The three different ways to declare a variable.
+- Which one should we use.
+- The rules for naming variables.
+- Operators, operands and operations.
+- Concatenation, and what happens when adding numbers and strings together.
+- The different types of operators in Javascript.
+- The difference between == and ===.
+- Operator precedence values.
+- increment/decrement operators.
+- The difference between prefixing and postfixing them.
+- Assignment operators.
+- Unary plus operator.
+ 
+-------------------------------------------------------------------------------------------------
+ 
+How to run JavaScript code:
+ 
+In the foundations course most of the JavaScript will be run via the browser. Later on in the Foundations course and NodeJS path we will go over running it outside the browser.
+ 
+The easiest way to start is to create an HTML file with the JavaScript code inside it.
+ 
+Example:
+(create a file for this example)
+ 
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset=“UTF-8”>
+			<title>Page Title</title>
+		</head>
+		
+		<body>
+			<script>
+				// JavaScript goes here
+				console.log(“Hello, World!”)
+			</script>
+		</body>
+	</html>
+ 
+The JS in the example above will print to the console Hello, World!
+ 
+Another way to add JS to an HTML file is by linking external js similar to css.
+Example:
+ 
+<script src=“javascript.js”></script>
+ 
+External JS is used for more complex scripts.
+-------------------------------------------------------------------------------------------------
+ 
+Variables:
+ 
+Up until recently there was only one way to create a variable in JavaScript, the var statement. But with the newest JavaScript versions there are two more ways, let and const.
+ 
+Examples in which a JS application may need to work with information:
+ 
+- An online shop, the information can be goods being sold and in a shopping cart.
+- A chat app, the information can be users, messages and much more.
+ 
+A variable is a named storage for data. We can use variables to store data.
+ 
+We can use let to create a variable in JS.
+ 
+Below a variable named message is being created:
+ 
+let message;
+ 
+Now lets put some data into it using the assignment operator =:
+ 
+let message;
+ 
+message = ‘Hello’;  // stores the string ‘Hello’ inside a variable named message.
+ 
+The string now is saved in the memory area associated with the variable. we are able to access it using the variable name, alert will display an alert in the web browser with the message variable content:
+ 
+let message;
+message = ‘hello’;
+ 
+alert(message);
+ 
+we can combine the variable declaration and assignment into one line:
+ 
+let message = ‘hello!’;
+ 
+alert(message);
+ 
+We are also able to declare multiple variables on one one:
+ 
+let user = ‘John’, age = 25, message = ‘hello’;
+ 
+That may seem better but it’s not recommend, due to readability. so use a single line per variable. its easier to read:
+ 
+let user = ‘John’;
+let age = 25;
+let message = ‘hello’;
+ 
+some people may define them in the multiline style:
+ 
+let user = ‘John’ ,
+	let age = 25,
+	let message = ‘hello’;
+ 
+or the comma-first style:
+ 
+let user = ‘John’
+	, let age = 25
+	, let message = ‘hello’;
+ 
+All of those do the same thing, it’s just a matter of personal taste and aesthetics.
+ 
+var instead of let:
+ 
+In older scripts we may find the keyword var instead of let:
+ 
+var message = ‘Hello’;
+ 
+var is almost the same as let, it also lets you declare a variable but in a slightly different old school way.
+ 
+There are slight differences between var and let.
+ 
+We can also change the value of a variable as many times as we want:
+ 
+let message;
+ 
+message = 'Hello!';
+ 
+message = 'World!'; // value changed
+ 
+alert(message);
+ 
+We can also declare two variables and copy data from one into another:
+ 
+let hello = 'Hello world!';
+ 
+let message;
+ 
+// copy 'Hello world' from hello into message
+message = hello;
+ 
+// now two variables hold the same data
+alert(hello); // Hello world!
+alert(message); // Hello world!
+ 
+A variable should only be declared once.
+-------------------------------------------------------------------------------------------------
+ 
+Variable naming:
+ 
+There are two limitations on variable names in JS:
+ 
+- The name must only contain letters, digits, or the symbols $ and _
+- The first character must not be a digit.
+ 
+Examples of valid names:
+ 
+let userName;
+let test123;
+ 
+camelCase is commonly used with names containing multiple words. Words go one after another every first letter is capital except on the first word:
+myVeryLongName.
+ 
+$ and _ are are regular symbols just like letters when naming variables in JS.
+ 
+More valid examples:
+ 
+let $ = 1; // declaring variable with the $ as the name.
+let _ = 2; // declaring variable with the _ as the name.
+ 
+alert($ + _); // will output 3
+ 
+Examples of invalid names:
+ 
+let 1a; // name cannot start with a digit
+let my-name; // names cannot contain hyphens.
+ 
+Case matters - Variables named apple and APPLE are two different variables.
+ 
+Non-latin letters are allowed but, not recommended -
+its possible to use any language, including Cyrillic letters, Chinese logograms and so on:
+ 
+let имя = '...';
+let 我 = '...';
+ 
+Technically, there are no errors here. but it’s an international convention to write variable names in english. This makes it easier for people in the future to read it.
+ 
+Reversed names -
+There is a list of reversed words, with cannot be used as variable names because they are used by the language it self.
+ 
+for example: let, class, return, and function are reserved.
+The code below gives a syntax error:
+ 
+let let = 5; // can’t name a variable “let”, error!
+let return = 5; // also can’t name it “return”, error!
+ 
+An assignment without use strict -
+Usually, we need to define a variable before using it, but before it was technically possible to create a variable by the assignment of a value without using let. 
+This still works now if we don’t put use strict in our script in order to maintain compatibility with older scripts.
+ 
+Example no use strict:
+ 
+num = 5; // the variable number is created is it doesnt exist already.
+ 
+alert(num); // 5
+ 
+Example use strict:
+ 
+“use strict”
+ 
+num = 5; // error: num is not defined
+-------------------------------------------------------------------------------------------------
+ 
+Constants:
+ 
+To declare a content (unchanging) variable, use const instead of let:
+ 
+const myBirthday = ’18.04.1982’;
+ 
+When we are sure that a variable will never change, we use const to make that clear to everyone.
+ 
+Uppercase constants -
+There is a widespread practice to use constants for difficult to remember values that are known before execution.
+ 
+Such constants are named using capital letters and underscores.
+ 
+For example, using constants for colours in “web” (hexadecimal) format:
+const COLOR_RED = "#F00";
+const COLOR_GREEN = "#0F0";
+const COLOR_BLUE = "#00F";
+const COLOR_ORANGE = "#FF7F00";
+ 
+// …when we need to pick a color
+let color = COLOR_ORANGE;
+alert(color); // #FF7F00
+ 
+Benefits:
+COLOR_ORANGE is easier to remember than #FF7F00
+Its easier to mistype #FF7F00
+When reading the code, COLOR_ORANGE is much more meaningful
+ 
+to summarise capital named constants are only used for hard-coded values. like above. 
+where as for example the times it takes for a page to load will only be known after the page is loaded and then assigned to a constant.
+-------------------------------------------------------------------------------------------------
+ 
+Name things right:
+ 
+A variable name should be clear and obvious. describing what data it is storing.
+ 
+Some good to know rules:
+ 
+- Human-readable names like userName or shoppingCart
+- Avoid abbreviations or short names like a, b and c.
+- Make names as descriptive as possible and concise.
+- Agree with terms in the team and in your mind, if a site visitor is called a “user” then we should use related terms like currentUser or newUser, instead of currentVisitor or newManInTown.
+ 
+Summary:
+- let is a modern variable declaration.
+- var is an old school method, normally not used now.
+- const is a variable that lots value never changes.

@@ -1,0 +1,51 @@
+String Methods
+ 
+String Length - returns the length of a string:
+let text = “Hello”;
+let length = text.length; // 5
+-------------------------------------------------------------------------------------------------
+ 
+Extracting String Characters - returns a character from the string, there are 4 methods: at(position), charAt(position), charCodeAt(position), property access [] like in arrays
+ 
+charAt - returns the character at the specified index position in a string :
+let text = “Hello”;
+let char = text.charAt(0); // H
+ 
+charCodeAt - returns the UTF-16 (integer between 0 and 65535) code of the character at specified index:
+let text = “Hello”;
+let char = text.charCodeAt(0); // 72
+ 
+at - returns the character at the specified index position in a string:
+let text = “Hello”;
+let char = text.at(0); // H
+ 
+access property - returns the character at the specified index position in a string:
+let text = “Hello”;
+let char = text[0]; // H
+ 
+at can use negative indexes where as charAt couldnt.
+-------------------------------------------------------------------------------------------------
+ 
+Extracting String Parts - Extracts selected parts from string, there are 3 methods: slice(start, end), substring(start, end), substr(start, length)
+ 
+slice() - extracts a part of a string from a start position and end position (end not included) and returns the extracted part as new string:
+let text = “Apple, Banana, Kiwi”;
+let part = text.slice(7, 13); // Banana
+ 
+extracts from certain point indicated:
+let text = “Apple, Banana, Kiwi”;
+let part = text.slice(7); // Banana, Kiwi
+ 
+goes in reverse:
+let text = “Apple, Banana, Kiwi”;
+let part = text.slice(-12); // Banana, Kiwi
+ 
+goes from position -12 to -6:
+let text = “Apple, Banana, Kiwi”;
+let part = text.slice(-12, -6); // Banana
+ 
+substring() - similar to slice but start and end values less than 0 are treated as 0:
+let text = “Apple, Banana, Kiwi”;
+let part = text.slice(7, 13); // Banana
+ 
+substr() - similar to slice but the second parameter specifies length of extracted part:

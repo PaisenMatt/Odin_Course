@@ -1,0 +1,244 @@
+Data types and Conditionals
+ 
+Introduction:
+ 
+Here we will go over a few very common types of data that we will encounter in JS.
+ 
+Lesson Overview:
+ 
+- The eight data types in JS
+- Difference between single, double, and backtick quotes
+- Embed a variable/expression in a string
+- Understand what a method is
+- The three logical operators
+- What comparison operators are
+- What conditionals are
+- What nesting is
+- What truthy and falsy values are
+-------------------------------------------------------------------------------------------------
+ 
+Data types:
+ 
+A value in js will always be a certain type. For example a string or a number.
+ 
+We are able to put any type in a variable. a variable can be a string at one moment and then store a number:
+ 
+let message = “hello”;
+message = 123456;
+ 
+Programming language which allow this, such as JS. are called “dynamically typed” meaning data types exist but variables are not bound to any of them.
+ 
+Number:
+ 
+let n = 123;
+n = 12.345;
+ 
+The number type represents both integer and floating point numbers.
+ 
+There are many operations for numbers such as multiplication, addiction, subtraction etc.
+ 
+Beside from regular numbers, there are also “special numeric values” which belong to this data type: Infinity, -Infinity and NaN.
+ 
+Infinity represents the mathematical infinity ∞. its a special value greater than any number:
+ 
+alert(1 / 0); // Infinity
+or
+alert(Infinity); // Infinity
+ 
+NaN represents a computational error. The result of an incorrect or undefined mathematical operation:
+ 
+alert( “not a number” / 2 ); // NaN, such division produces an error.
+ 
+Any operation on NaN returns NaN:
+ 
+alert( NaN + 1 ); // NaN
+alert( 3 * NaN ) // NaN
+alert( “not a number” / 2 - 1 ); // NaN
+ 
+So if there is a NaN in any mathematical expression, it propagates the whole result ( an exception being with NaN ** 0 which gives 1 )
+ 
+math in JS is safe, we can do anything, dividing by zero treats non-numeric strings as numbers, etc.
+ 
+A script will never stop or fail, the worst that will happen is getting a NaN.
+-------------------------------------------------------------------------------------------------
+ 
+BigInt:
+ 
+In JS, the “number” type cannot safely represent integer values larger than (2^53-1 being 9007199254740991), or less than (-2^53-1) for negatives.
+ 
+To be precise, the number type can store larger integers (up to 1.7976931348623157 * 10^308), but outside of the same integer ranger which was shown above. 
+there will be a precision error as not all digits fit into the fixed 64-bit storage. so an approximate value may be stored.
+ 
+For example, the numbers below right above the safe range are the same:
+ 
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+ 
+All odd integers greater than (2^53-1) can’t be stored at all in the “number” type.
+ 
+BigInt type was recently added to JS to represent integers of extraordinary lengths.
+ 
+BigInt is created by appending n to the end of an integer:
+ 
+// the "n" at the end means it's a BigInt
+const bigInt = 1234567890123456789012345678901234567890n;
+ 
+BigInt numbers are rarely needed.
+-------------------------------------------------------------------------------------------------
+ 
+String:
+ 
+a string in JS must be surrounded by quotes.
+ 
+let str = “Hello”;
+let str2 = ‘Single quotes are ok too’;
+let phrase = `can embed another ${str}`;
+ 
+In JS, there are three types of quotes:
+ 
+- Double quotes: “Hello”
+- Single quotes: ‘Hello’
+- Backticks: `Hello`
+ 
+Double and single quotes are simple quotes. There is basically  no difference between them in JS.
+ 
+Backticks are extended functionality quotes. They allow us to embed variables and expressions into a string by wrapping them in ${…}, for example:
+ 
+let name = “John”;
+ 
+// embed a variable
+alert(`Hello, ${name}!`); // Hello, John!
+ 
+// embed an expression
+alert(`the result is ${1 + 2}`); // the result is 3
+ 
+The expression inside ${…} is evaluated and the result becomes part of the string. anything can go in there like the examples above or even something more complex.
+ 
+This can only be done in backticks. Other quotes don’t have embedding functionality.
+ 
+alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (double quotes do nothing)
+-------------------------------------------------------------------------------------------------
+ 
+Boolean (logical type):
+ 
+This type has two values: true or false. This commonly used to store yes/no values.
+ 
+For example:
+ 
+let nameFieldChecked = true; // yes, name field is checked
+let ageFieldChecked = false; // no, age field is not checked.
+ 
+Boolean values also come as a result for comparisons:
+ 
+let isGreater = 4 > 1;
+ 
+alert( isGreater ); // true (the comparison result is yes)
+-------------------------------------------------------------------------------------------------
+ 
+The “null” value:
+ 
+The null value is special and doesn’t belong to any of the above values.
+ 
+It forms a type of its own which only contains the null value:
+ 
+let age = null;
+ 
+In JS, null is not a reference to a non existing object or a null point, like in some other languages.
+ 
+its just a special value which represents nothing, empty or value unknown.
+ 
+the example above states that age is unknown.
+-------------------------------------------------------------------------------------------------
+ 
+The undefined value:
+ 
+This value is also special and stands apart. it makes its own type just like null.
+ 
+The meaning of undefined is, value not assigned.
+ 
+if a variable is declared, but not assigned a value. then its value is undefined:
+ 
+let age;
+ 
+alert(age); // shows “undefined”
+ 
+its possible to directly assign undefined to a variable:
+ 
+let age = 100;
+ 
+// change value to undefined
+age = undefined;
+ 
+alert(age); // “undefined”
+ 
+although its not recommended doing that. Normally, we use null to assign empty or unknown to a variable. undefined is reserved as a default initial value for unassigned things.
+-------------------------------------------------------------------------------------------------
+ 
+Objects and symbols:
+ 
+The object type is special.
+ 
+All the other types are called primitive because their values can only contain a single thing (a string, number etc.) Where as an object can store collections of data and more complex entities.
+ 
+The symbol type is used to create unique identifiers for objects.
+-------------------------------------------------------------------------------------------------
+ 
+Typeof operator:
+ 
+This operator returns the type of the operand. it’s useful for when we want to process values of different types differently or just want to do a quick check.
+ 
+typeof x returns a string with the type name:
+ 
+typeof undefined // "undefined"
+ 
+typeof 0 // "number"
+ 
+typeof 10n // "bigint"
+ 
+typeof true // "boolean"
+ 
+typeof "foo" // "string"
+ 
+typeof Symbol("id") // "symbol"
+ 
+typeof Math // "object"  (1)
+ 
+typeof null // "object"  (2)
+ 
+typeof alert // "function"  (3)
+ 
+The last three:
+ 
+- Math is a built in object that provides mathematical operations.
+- The result of typeof null is object. it’s an officially recognised error in typeof, coming from very early days of JS and kept for compatibility. 
+  null is not an object, its a special value with a type of its own. typeof is wrong here.
+- alert is a function hence being labelled as one by type of.
+-------------------------------------------------------------------------------------------------
+ 
+Summary:
+ 
+Seven primitive data types:
+- number, for integers (limited by ±(2^53-1)  or floating-point.
+- bigint, integer numbers of arbitrary lengths.
+- string, a string may have zero or more characters, there is no separate single character type.
+- boolean, true/false.
+- null, for unknown values.
+- undefined, for unassigned values.
+- symbol, for unique identifiers.
+single non primitive:
+- object, for more complex data structures.
+ 
+typeof allows us to see which type is stored in a variable.
+-------------------------------------------------------------------------------------------------
+ 
+To include quote marks in strings we can surround the string with a different quote mark:
+ 
+console.log(‘He said: “Hello World”’); // He said: “Hello World”
+ 
+Or use a backslash just before the character:
+ 
+console.log(“He said: \ “Hello World\””); // He said: “Hello World”
+ 
+Convert a number to string: String(number)
+Convert a string to a number: Number(string)
+-------------------------------------------------------------------------------------------------
