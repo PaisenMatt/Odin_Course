@@ -1,0 +1,115 @@
+Conditionals
+ 
+Comparisons:
+ 
+In JS comparisons are written like so:
+ 
+- Greater/Less than: a > b, a < b
+- Greater/Less than or equal: a >= b, a <= b
+- equals: a == b, double == means equality test while single = means assignment.
+- Not equal: in math ≠ but in JS: a != b
+-------------------------------------------------------------------------------------------------
+ 
+Boolean is the result:
+ 
+all comparison operators return a boolean result:
+true meaning yes, correct, the truth
+false meaning no, incorrect, not the truth
+ 
+For example:
+alert( 2 > 1 ); // true
+alert( 2 == 1 ) // false
+alert( 2 != 1 ) // true
+ 
+A comparison result can be assigned to a variable, just like any value:
+let result = 5 > 4; // assigns result (true)
+alert( result ); // true
+-------------------------------------------------------------------------------------------------
+ 
+String comparison:
+ 
+to compare strings, JS uses the so called dictionary or lexicographical order.
+ 
+ 
+simplified, strings are compared letter by letter.
+ 
+For example:
+alert( 'Z' > 'A' ); // true
+alert( 'Glow' > 'Glee' ); // true
+alert( 'Bee' > 'Be' ); // true
+ 
+Explanation:
+1. compare first character of both strings
+2. If the first char from the first str is greater ( or less) than the other string’s, then the first str is greater (or less) than the second, done.
+3. Otherwise, if both strings’ first char are the same, compare the second chars the same way.
+4. repeat until the end of either string.
+5. if both end at the same length, then they are equal. otherwise, the longer str is greater.
+-------------------------------------------------------------------------------------------------
+ 
+Comparison of different types:
+ 
+When comparing values of different types JS converts them to numbers.
+ 
+For example:
+ 
+alert( ‘2’ > 1 ); // true
+alert( ’01’ == 1 ); // true, 01 becomes 1
+ 
+For boolean values, true becomes 1 and false 0.
+ 
+For example:
+ 
+alert( true == 1 ); // true
+alert( false == 0 ); // true
+-------------------------------------------------------------------------------------------------
+ 
+Strict equality:
+ 
+Regular equality check == has a problem. it cannot differentiate 0 from false:
+ 
+alert( 0 == false ); // true
+ 
+the same with empty string:
+ 
+alert( ‘’ == false ); // true
+ 
+This occurs as operands of different types are converted to numbers by ==. an empty str just like false becomes 0.
+ 
+if we want to differentiate 0 from false:
+ 
+a strict equality operator === checks equality without conversion.
+so if a and b are different types a === b returns false immediately without trying to convert them.
+ 
+alert( 0 === false ); // false as they are not the same type.
+ 
+there is also a strict not equal !== opposed to !=
+-------------------------------------------------------------------------------------------------
+ 
+Comparison with null and undefined:
+ 
+alert( null === undefined ); // gives false as both are different types.
+ 
+with == these values are equal but not in any other value.
+ 
+for maths and other comparisons <> <= >=:
+null becomes 0 and undefined becomes NaN.
+ 
+Strange results: null vs 0
+ 
+alert( null > 0 );  // (1) false
+alert( null == 0 ); // (2) false
+alert( null >= 0 ); // (3) true
+ 
+The reason for the things above is that comparisons convert null to a number hence the results only in he third one is null converted to a zero.
+-------------------------------------------------------------------------------------------------
+ 
+Incomparable undefined:
+ 
+undefined shouldn’t be compared to other values.
+ 
+alert( undefined > 0 ); // false (1)
+alert( undefined < 0 ); // false (2)
+alert( undefined == 0 ); // false (3)
+ 
+with the first and second undefined gets converted to NaN which with all comparisons returns false.
+In the third one false is returned as undefined only equals null, undefined and no other value.
