@@ -1,0 +1,174 @@
+MDN Conditionals
+ 
+switch statements:
+ 
+switch statements take a single expression/value as an input, then look through several choices until they find one that matches that value, executing the corresponding code that goes along with it.
+ 
+example (pseudocode):
+ 
+switch (expression) {
+  case choice1:
+    // run this code
+    break;
+ 
+  case choice2:
+    // run this code instead
+    break;
+ 
+  // include as many cases as you wish
+ 
+  default:
+    // instead, run this code
+    break;
+}
+ 
+Explanation:
+- The keyword switch, followed by set of parentheses.
+ 
+- An expression or value inside the parentheses.
+ 
+- The keyword case, followed by a choice that the expression/value   
+    could be, followed by colon.
+ 
+- some code to run if the choice matches the expression.
+ 
+- a break statement, followed by a semicolon. if the previous choice       
+    matches the expression/value, the browser stops executing the  
+    code block here, and moves on to any code that appears below         
+    the switch statement.
+ 
+- As many other cases (bullets 3-5) as you like.
+ 
+- The keyword default, followed by exactly the same code pattern   
+    as one of the cases (bullets 3-5), except that default does not
+    have a choice after it, and you don’t need the break statement as
+    there is nothing to run after this in the block anyway. This is the
+    default option that runs if none of the choices match.
+ 
+if there isn’t the possibility of an unknown value occurring you can omit the default.
+ 
+switch example:
+ 
+let cheese = “Mozzarella”;
+ 
+ 
+switch (cheese){
+ 
+// if cheese is Cheddar will output Yay
+  case "Cheddar":
+    console.log("Yay");
+    break;
+  
+// if cheese is Mozzarella will output ahhhh
+  case "Mozzarella":
+    console.log("ahhhh");
+    break;
+    
+// if non of the above values will output bye
+  default:
+    console.log("bye");
+}
+ 
+-------------------------------------------------------------------------------------------------
+ 
+Ternary operator:
+ 
+This operator is a small bit of syntax which tests a condition and returns one value/expression if it is true and another if it is false, this can be useful in some situations, 
+as it takes up a lot less code than an if … else block if you have two choices made from a true/false condition.
+ 
+Syntax:
+ 
+condition ? run this code : run this code instead
+ 
+Example:
+ 
+// assigning variable based on a true/false condition
+let age = 21;
+let message = age >= 18 ? “You’re an adult” : “You’re a minor”;
+// checks if age is greater or equal to 18, if yes the first message is displayed if no the second one.
+[00:44] de Oliveira, Matheus Fradique
+conditionals tasks:
+ 
+Task 1:
+let season = 'winter';
+let response;
+ 
+switch(season){
+  case "summer":
+    response = "it's nice and sunny this season";
+    break;
+  case "winter":
+    response = "it's chilly outside this season";
+    break;
+  default:
+    response = "We don't know what season it is now!"
+    break;
+}
+ 
+Task 2:
+let response;
+let score = 100;
+let machineActive = true;
+ 
+if (machineActive == true){
+    if (score < 0 || score > 100){
+      response = "This is not possible, an error has occurred."
+} else if (score <= 19){
+    response = "That was a terrible score — total fail!"
+} else if (score >= 20 && score <= 39){
+    response = "You know some things, but it\'s a pretty bad score. Needs improvement."
+} else if (score >= 40 && score <= 69){
+    response = "You did a passable job, not bad!"
+} else if (score >= 70 && score <= 89){
+    response = "That\'s a great score, you really know your stuff."
+} else if (score >= 90 && score <=100){
+    response = "What an amazing score! Did you cheat? Are you for real?"
+}
+ 
+ 
+} else {
+    response = "Turn on the machine please!";
+}
+ 
+Task 3:
+let machineActive = true;
+let pwd = 'cheese';
+ 
+let machineResult;
+let pwdResult;
+ 
+if (machineActive == true){
+ 
+  machineResult = "The machine is on"
+  pwd == "cheese" ?pwdResult = "Password Correct!" :pwdResult =
+  "Password Incorrect";
+ 
+} else{
+ 
+    machineResult = "The machine is off"
+ 
+}
+[00:44] de Oliveira, Matheus Fradique
+JS Info Conditionals
+ 
+A number 0, empty string “”, null, undefined, and NaN all become false in boolean form. therefore they are called falsy values.
+ 
+Other values become true, so they are called truthy.
+ 
+for example:
+ 
+if (0) { // 0 falsy
+  …
+}
+ 
+if (1) { // 2 is truthy
+  …
+}
+ 
+we can also pass a pre-evaluated boolean value to if:
+ 
+let cond = (year == 2015);
+ 
+if (cond){
+  …
+}
