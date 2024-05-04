@@ -1,0 +1,47 @@
+JS Info Conditionals
+
+A number 0, empty string “”, null, undefined, and NaN all become false in boolean form. therefore they are called falsy values.
+
+Other values become true, so they are called truthy.
+
+for example:
+
+if (0) { // 0 falsy 
+	…
+}
+
+if (1) { // 2 is truthy
+	…
+}
+
+we can also pass a pre-evaluated boolean value to if:
+
+let cond = (year == 2015);
+
+if (cond){
+	…
+}
+
+-------------------------------------------------------------------------------------------------
+
+Multiple ‘?’:
+
+You can use the ? operator in a sequence to return a value that depends on more than one condition:
+
+let age = prompt(‘age?’, 18);
+
+let message = (age < 3) ? ‘Hi, baby!’ :
+	(age < 18) ? ‘Hello!’ :
+	(age < 100) ? ‘Greetings!’ :
+	‘What an unusual age!’;
+
+alert(message);
+
+The above checks through each condition until one is true returning its value, otherwise ‘What an unusual age!’ is returned.
+
+sometimes the ? operator can be used to replace if:
+
+let company = prompt(‘Which company created JavaScript?’, ‘’);
+
+(company == ‘Netscape’) ?
+	alert(‘Right!’) : alert(‘Wrong.’);
