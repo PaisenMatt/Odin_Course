@@ -1,0 +1,165 @@
+JS Info Switch Statement 
+
+A switch statement can replace multiple if checks.
+its a more descriptive way to compare a value with multiple variants.
+
+The syntax:
+
+switch(x) {
+	case ‘value1’ : // if (x === ‘value1’)
+		…
+		break;
+	case ‘value2’ : // if (x === ‘value2’)
+		…	
+		break;
+	default: // if non of the above do this
+		…
+		break;
+}
+
+ - x is checked for a strict equality to value1 from the first case, then        value2 etc.
+ - if the equality if found, switch starts to execute the code from the corresponding case until the nearest break/end of switch
+ - if no case if equal to x then default is used.
+
+example:
+
+let a = 2 + 2;
+
+switch (a) {
+    case 3:
+        alert( 'Too small' );
+        break;
+    case 4:
+        alert( 'Exactly!' );
+        break;
+    case 5:
+        alert( 'Too big' );
+        break;
+    default:
+        alert( "I don't know such values" );
+}
+
+ - with this example case 4 would run, as the result is 4.
+-------------------------------------------------------------------------------------------------
+
+case grouping:
+
+several variants of case which share the same code can be grouped:
+
+let a = 3;
+
+switch (a) {
+    case 4:
+        alert('Right!');
+        break;
+
+    case 3: // (*) grouped two cases
+    case 5:
+        alert('Wrong!');
+        alert("Why don't you take a math class?");
+        break;
+
+    default:
+        alert('The result is strange. Really.');
+}
+
+ - the result of this switch would be case 3 which is grouped with case 5.
+-------------------------------------------------------------------------------------------------
+
+Type matters:
+
+equality check is always strict. The values must be if the same type to match.
+
+for example:
+
+let arg = prompt("Enter a value?");
+switch (arg) {
+    case '0':
+    case '1':
+        alert( 'One or zero' );
+        break;
+
+    case '2':
+        alert( 'Two' );
+        break;
+
+    case 3:
+        alert( 'Never executes!' );
+        break;
+    default:
+        alert( 'An unknown value' );
+}
+
+ - For 0, 1, the first alert runs.
+ - For 2 the    second alert runs.
+ - but for 3 it doesn’t, as the 3 in prompt is a string “3”, but the case 3 is a number, meaning the default alert would run. as there is no match.
+-------------------------------------------------------------------------------------------------
+
+Task 1 switch to if else -
+
+switch:
+
+switch (browser) {
+    case 'Edge':
+        alert( "You've got the Edge!" );
+        break;
+
+    case 'Chrome':
+    case 'Firefox':
+    case 'Safari':
+    case 'Opera':
+        alert( 'Okay we support these browsers too' );
+        break;
+
+    default:
+        alert( 'We hope that this page looks ok!' );
+}
+
+if else:
+
+if (browser == "Edge"){
+    alert("You've go the Edge!")
+} else if (browser == "Chrome" 
+    || browser == "Firefox" 
+    || browser == "Saafari" 
+    || browser == "Opera"){
+        alert("Okay we support these browsers too")
+} else {
+    alert("We hope that this page looks ok!")
+}
+
+Task 2 if to switch -
+
+if:
+
+let a = +prompt('a?', '');
+
+if (a == 0) {
+    alert( 0 );
+}
+if (a == 1) {
+    alert( 1 );
+}
+
+if (a == 2 || a == 3) {
+    alert( '2,3' );
+}
+
+switch:
+
+let a = +prompt("a", "");
+
+switch (a){
+    case 0:
+        alert(0);
+        break;
+        
+    case 1:
+        alert(1);
+        break;
+    
+    case 2:
+    case 3:
+        alert("2,3");
+        break;
+}
