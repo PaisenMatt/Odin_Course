@@ -49,3 +49,5 @@ let text = “Apple, Banana, Kiwi”;
 let part = text.slice(7, 13); // Banana
  
 substr() - similar to slice but the second parameter specifies length of extracted part:
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(7, 6); // Banana
